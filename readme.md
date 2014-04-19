@@ -1,3 +1,4 @@
-# A Backbone Example
+pushcart-dashboard
+==================
 
-Creating modular folder structure for a sample backbone app.
+A small data dashboard for nutrition.
