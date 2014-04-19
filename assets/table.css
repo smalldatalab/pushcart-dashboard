@@ -1,0 +1,63 @@
+.collapse-custom .navbar-tool {
+  display: none; }
+.collapse-custom .navbar {
+  width: 75%;
+  position: relative;
+  top: 30px;
+  left: 20%;
+  margin-bottom: 0;
+  border-radius: 0;
+  cursor: pointer;
+  border-bottom: none; }
+  .collapse-custom .navbar .btn-xs {
+    font-size: inherit; }
+  .collapse-custom .navbar li ul {
+    list-style-type: none;
+    padding-left: 15px; }
+.collapse-custom .navbar:last-of-type {
+  border-bottom: 1px solid #e7e7e7; }
+.collapse-custom .navbar-heading {
+  background-color: rgba(71, 70, 75, 0.6);
+  cursor: default;
+  font-weight: bold;
+  font-size: 16px; }
+  .collapse-custom .navbar-heading li {
+    padding: 10px 0 10px 0; }
+  .collapse-custom .navbar-heading li a {
+    color: #fff; }
+    .collapse-custom .navbar-heading li a:hover {
+      color: #fff; }
+.collapse-custom .navbar-nav .one {
+  left: 50px;
+  min-width: 300px; }
+.collapse-custom .navbar-nav .two {
+  min-width: 340px; }
+.collapse-custom .navbar-nav .three {
+  min-width: 200px; }
+.collapse-custom .navbar-nav .four {
+  min-width: 110px; }
+.collapse-custom .navbar-nav .five {
+  width: 20px; }
+.collapse-custom .collapse-open {
+  background-color: #f5f5f5; }
+.collapse-custom .panel-body {
+  width: 20%; }
+.collapse-custom #hidden-left, .collapse-custom #hidden-right {
+  float: left;
+  width: 50%;
+  padding: 23px;
+  text: justify; }
+  .collapse-custom #hidden-left h5, .collapse-custom #hidden-right h5 {
+    border-bottom: 2px solid #f2d98e;
+    font-family: 'Cabin', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    padding-bottom: 6px;
+    color: #5f6273; }
+.collapse-custom #hidden-right {
+  float: right;
+  width: 50%; }
+.collapse-custom .item-des {
+  color: rgba(197, 62, 62, 0.9);
+  margin-left: 20px; }
