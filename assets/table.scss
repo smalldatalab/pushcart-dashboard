@@ -78,28 +78,21 @@
       width: 20%;
   }
 
-  #hidden-left, #hidden-right{
-      float: left;
-      width: 50%;
-      padding: 23px;
-      text: justify;
+  #hidden-content{
+      margin-left: 100px;
+      width: 80%;
+      padding: 30px;
       
-
-      h5{
-        border-bottom: 2px solid rgb(242,217,142);
-        font-family: 'Cabin', sans-serif;
-        font-weight: 400;
-        font-size: 18px;
-        line-height: 18px;
-        padding-bottom: 6px;
-        color: rgb(95, 98, 115);
-      }
-  }
-
-    #hidden-right{
-        float: right;
-        width: 50%;
+    h5{
+      border-bottom: 2px solid rgb(242,217,142);
+      font-family: 'Cabin', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 18px;
+      padding-bottom: 6px;
+      color: rgb(95, 98, 115);
     }
+  }
     
     .item-des{
         color: rgba(197, 62, 62, 0.9);

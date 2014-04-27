@@ -1,16 +1,15 @@
-// collection for items and individual item's nutritional data 
+// collection for items and item's nutritional data 
 var PurchaseItemsCollection = Backbone.Collection.extend({
 
   model: PurchaseItem,
 
   url: function() { 
-    return pushcartHost + "/purchases/" + this.purchase.get('id') + "/items";
+    return pushcartHost + "/users/" + USER_ID + "/purchases/" + this.purchase.get('id') + "/items";
   },
 
   initialize: function(models, options) {
-    console.log('collection options:');
-    console.log(options);
-    this.purchase = options.purchase;
+    // options declared on index.html
+      this.purchase = options.purchase;
   }
 
 })

@@ -1,8 +1,10 @@
-// collection for purchase history 
+
 var PurchaseCollection = Backbone.Collection.extend({
   
   model: PurchaseModel,
   
-  url: pushcartHost + "/purchases" 
+  url: function() {
+    return pushcartHost + "/users/" + USER_ID + "/purchases";
+  }
   
 });

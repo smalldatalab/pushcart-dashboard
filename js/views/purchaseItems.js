@@ -1,3 +1,4 @@
+// view responsible for items bought in a single purchase 
 var PurchaseItemsView = Backbone.View.extend({
 
   template: _.template($('#template-purchase-items').html()),
@@ -8,15 +9,15 @@ var PurchaseItemsView = Backbone.View.extend({
     'click .item-category': 'itemClicked'
   },
 
-  initialize: function(options) {
+  initialize: function(options) { 
     this.options = options;
-
     this.collection = new PurchaseItemsCollection([], {
       purchase: this.model
     });
+
+    this.chartsView = [];
     this.listenTo(this.collection, 'sync', this.itemsFetched);
     this.collection.fetch(); 
-
   },
 
   itemClicked: function(e) {
@@ -28,32 +29,42 @@ var PurchaseItemsView = Backbone.View.extend({
 
   render: function() {
     var data = {}; 
-    console.log('Purchase Items render!') ;
     this.$el.html(this.template(data));
     this.renderItems();
     return this;
   },
 
   itemsFetched: function() {
-    console.log('items fetched!');
     this.renderItems();
   },
 
-  renderItems: function() {
+  remove: function() {
+    _.invoke(this.chartsView, 'remove');
+    this.chartsView = [];
 
-    var self = this;
-    console.log('Rendering the items!');
+    Backbone.View.prototype.remove.call(this);
+  },
+
+  renderItems: function() {
      var tbody = this.$('tbody');
      tbody.empty();
      this.collection.each(function(item) {
-      
+  
         var data = _.extend({
           link: item.url()
         }, item.attributes);
-        console.log(data);
-        var html = self.rowTemplate(data);
-        tbody.append(html);
-     });   
-  }
 
+        var row = $(this.rowTemplate(data));
+        var chartView = new NutritionChartsView({
+          el: row.find('td.item-charts'),
+          model: item,
+          size: 40
+        });
+        
+        chartView.render();
+        this.chartsView.push(chartView);
+        tbody.append(row);
+        
+     }, this);   
+  }
 })

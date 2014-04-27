@@ -1,3 +1,4 @@
+
 var NutritionView = Backbone.View.extend({
   template: _.template($('#template-nutrition-aggregate').html()),
 
@@ -8,14 +9,12 @@ var NutritionView = Backbone.View.extend({
     this.collection = new PurchaseItemsCollection([], {
       purchase: this.model
     });
+
     this.listenTo(this.collection, 'sync', this.itemsFetched);
     this.collection.fetch();
   },
 
-
-  render: function() {
-    // var data = {};
-    
+  render: function() {    
     this.$el.html('Aggregates');
     return this;
   }

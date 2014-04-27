@@ -42,12 +42,11 @@
   background-color: #f5f5f5; }
 .collapse-custom .panel-body {
   width: 20%; }
-.collapse-custom #hidden-left, .collapse-custom #hidden-right {
-  float: left;
-  width: 50%;
-  padding: 23px;
-  text: justify; }
-  .collapse-custom #hidden-left h5, .collapse-custom #hidden-right h5 {
+.collapse-custom #hidden-content {
+  margin-left: 100px;
+  width: 80%;
+  padding: 30px; }
+  .collapse-custom #hidden-content h5 {
     border-bottom: 2px solid #f2d98e;
     font-family: 'Cabin', sans-serif;
     font-weight: 400;
@@ -55,9 +54,6 @@
     line-height: 18px;
     padding-bottom: 6px;
     color: #5f6273; }
-.collapse-custom #hidden-right {
-  float: right;
-  width: 50%; }
 .collapse-custom .item-des {
   color: rgba(197, 62, 62, 0.9);
   margin-left: 20px; }
