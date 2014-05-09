@@ -1,12 +1,13 @@
 // nutritional info for individual purchased items - renders doughnut charts 
-var NutritionChartsView = Backbone.View.extend({
+
+Pushcart.Views.NutritionCharts = Backbone.View.extend({
 
   initialize: function(options) {
     this.chartSize = options.size;
     this.chartsData = [];
   },
 
-  calculateChartsData: function() {
+  calculateChartsData: function() { 
     var data = this.model.get('nutritional_data');
     
     // if value returns undefined/null, default to 0
@@ -22,7 +23,7 @@ var NutritionChartsView = Backbone.View.extend({
       },
       {
         value: 100 - vitaminAVal, 
-        color: "rgba(110, 127, 149, 0.7)",
+        color: "rgba(110, 127, 149, 0.2)",
       }
     ];
 
@@ -33,7 +34,7 @@ var NutritionChartsView = Backbone.View.extend({
       },
       {
         value: 100 - vitaminCVal, 
-        color: "rgba(110, 127, 149, 0.7)",
+        color: "rgba(110, 127, 149, 0.2)",
       }
     ];
  
@@ -44,7 +45,7 @@ var NutritionChartsView = Backbone.View.extend({
       },
       {
         value: 100 - ironVal, 
-        color: "rgba(110, 127, 149, 0.7)",
+        color: "rgba(110, 127, 149, 0.2)",
       }
     ];
  
@@ -55,7 +56,7 @@ var NutritionChartsView = Backbone.View.extend({
       },
       {
         value: 100 - calcVal, 
-        color: "rgba(110, 127, 149, 0.7)",
+        color: "rgba(110, 127, 149, 0.2)",
       }
 
     ];
@@ -76,5 +77,4 @@ var NutritionChartsView = Backbone.View.extend({
       new Chart(cvx.get(0).getContext("2d")).Doughnut(this.chartsData[i]);
     }
   }
-
 });

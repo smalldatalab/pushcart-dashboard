@@ -1,15 +1,11 @@
 // collection for items and item's nutritional data 
-var PurchaseItemsCollection = Backbone.Collection.extend({
-
-  model: PurchaseItem,
-
-  url: function() { 
-    return pushcartHost + "/users/" + USER_ID + "/purchases/" + this.purchase.get('id') + "/items";
+Pushcart.Collections.PurchaseItems = Backbone.Collection.extend({
+  model: Pushcart.Models.PurchaseItem,
+  url: function(options) {
+    return pushcartHost + "/users/" + this.userId + "/purchases/" + this.purchase.get('id') + "/items";
   },
-
-  initialize: function(models, options) {
-    // options declared on index.html
-      this.purchase = options.purchase;
+  initialize: function(options) {
+    this.userId = options.userId;
+    this.purchase = options.purchase;
   }
-
-})
+});
