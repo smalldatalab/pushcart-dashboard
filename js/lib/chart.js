@@ -264,7 +264,7 @@ window.Chart = function(context){
   this.Doughnut = function(data,options){
   
     chart.Doughnut.defaults = {
-      segmentShowStroke : true,
+      segmentShowStroke : false,
       segmentStrokeColor : "#fff",
       segmentStrokeWidth : 1,
       percentageInnerCutout : 60,
@@ -276,8 +276,8 @@ window.Chart = function(context){
       onAnimationComplete : null,
 
       labelFontFamily : "Arial",
-      labelFontStyle : "normal",
-      labelFontSize : 25,
+      labelFontStyle : "bold",
+      labelFontSize : 16,
       labelFontColor : "#C53E3E"
     };    
 

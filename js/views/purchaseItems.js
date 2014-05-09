@@ -42,7 +42,7 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
         var chartView = new Pushcart.Views.NutritionCharts({
           el: row.find('td.item-charts'),
           model: item,
-          size: 55
+          size: 50
         });
         chartView.render();
         this.chartsView.push(chartView);

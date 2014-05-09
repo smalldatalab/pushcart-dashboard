@@ -1,6 +1,15 @@
 body {
   background-color: whitesmoke; }
 
+/*
+.placeholder-purchase-text{
+  width: 30%;
+  position: relative;
+  top: 80px;
+  left: -140px;
+  float: right;
+  color: rgb(220,220,220);
+}*/
 #admin-panel {
   position: relative;
   top: 60px;
@@ -35,9 +44,21 @@ body {
   padding-left: 5px; }
 
 .user-table td, .table tr {
-  font: 13px/13px Arial, Sans-serif;
+  font: 13px;
   padding: 10px;
   margin: 20px;
-  /*background-color: rgba(71,70,75, 0.6);*/
   background-color: #f8f8f8;
   color: #777777; }
+
+/*.user-selected{
+  font: 13px;
+  padding: 10px;
+  margin: 20px;
+  background-color: rgba(242, 217, 142, 0.4);
+  color: rgb(119, 119, 119);
+
+}
+*/
+.active {
+  background: red;
+  color: white; }

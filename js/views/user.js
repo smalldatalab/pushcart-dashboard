@@ -10,7 +10,7 @@ Pushcart.Views.User = Backbone.View.extend({
   },
 
   events: {
-    "click .userIdClickable": "reRenderPurchases"
+    "click .userIdClickable": "reRenderPurchases",
   },
 
   reRenderPurchases: function(e){

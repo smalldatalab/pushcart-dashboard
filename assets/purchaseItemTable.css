@@ -79,6 +79,8 @@
   .collapse-custom .item-des {
     cursor: default;
     color: rgba(197, 62, 62, 0.9);
-    /* margin-left: 20px;*/ }
+    /* margin-left: 20px;*/
+    font-size: 12px;
+    font-weight: bold; }
   .collapse-custom .item-charts {
     cursor: default; }

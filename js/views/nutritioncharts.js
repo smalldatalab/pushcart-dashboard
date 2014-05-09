@@ -18,8 +18,8 @@ Pushcart.Views.NutritionCharts = Backbone.View.extend({
 
     this.chartsData[0]  = [
       {
-       value: vitaminAVal,
-       color: "rgb(159, 202, 107)",
+        value: vitaminAVal,
+        color: "rgba(159, 202, 107, 0.9)",
       },
       {
         value: 100 - vitaminAVal, 
@@ -29,8 +29,8 @@ Pushcart.Views.NutritionCharts = Backbone.View.extend({
 
     this.chartsData[1] = [
       {
-       value: vitaminCVal,
-       color: "rgb(159, 202, 107)",
+        value: vitaminCVal,
+        color: "rgba(159, 202, 107, 0.9)",
       },
       {
         value: 100 - vitaminCVal, 
@@ -41,7 +41,7 @@ Pushcart.Views.NutritionCharts = Backbone.View.extend({
     this.chartsData[2] = [
       {
        value: ironVal,
-       color: "rgb(159, 202, 107)",
+       color: "rgba(159, 202, 107, 0.9)",
       },
       {
         value: 100 - ironVal, 
@@ -52,7 +52,7 @@ Pushcart.Views.NutritionCharts = Backbone.View.extend({
     this.chartsData[3] =[
       {
        value: calcVal,
-       color: "rgb(159, 202, 107)",
+       color: "rgba(159, 202, 107, 0.9)",
       },
       {
         value: 100 - calcVal, 
