@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/table.css">
     <link rel="stylesheet" href="assets/charts.css">
     <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
+    <link rel="stylesheet" href="assets/ui-lightness/jquery-ui-1.10.4.custom.css">
   </head>
   <body>
     
@@ -138,22 +139,21 @@
 
 
   <script>
-    var pushcartHost ='http://localhost:3000/api/v1';
-    // var pushcartHost = 'http://gopushcart.com/api/v1';
+    // var pushcartHost ='http://localhost:3000/api/v1';
+    var pushcartHost = 'http://gopushcart.com/api/v1';
   </script>
        
   <!-- require lib files -->
   <script src="js/lib/jquery.js"></script>
   <script src="js/lib/underscore.js"></script>
   <script src="js/lib/backbone.js"></script>
+  <script src="js/lib/jquery-ui-1.10.4.custom.js"></script> 
   <script src="js/lib/bootstrap.js"></script>
-  
-  <!-- script src="js/lib/backgrid.js"></script> -->
   <script src="js/lib/chart.js"></script>
   <script src="js/lib/moment.js"></script>
   <script src="js/lib/backbone.localStorage.js"></script>
+  <script src="js/auth.js"></script>
 
-  <!-- require modules -->
   <script src="js/config.js"></script>
 
   <!-- models -->
@@ -173,6 +173,23 @@
   <script src="js/views/purchaseItems.js"></script> 
   <script src="js/views/purchaseItemDetail.js"></script>
   <script src="js/views/nutritioncharts.js"></script>
+
+    <!-- log-in -->
+    <script>
+
+      $(function(){
+        $(".dialog").dialog();
+
+       $("form").on('submit', function(event) {
+        event.preventDefault();
+        var $dialog = $('.dialog');
+        var username = $dialog.find('input[name="username"]').val();
+        var password = $dialog.find('input[name="password"]').val();
+        getAccessToken(username, password);
+       });
+      });
+
+    </script>
 
   </body>
 </html>
