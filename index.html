@@ -2,32 +2,75 @@
   <html>
   <head>    
     <meta charset="UTF-8">  
-    <meta http-equiv="X-UA-Compatiable" content="IE=edge,chrome=1">  
-    <title> Pushcart Backbone </title>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatiable" content="IE=edge,chrome=1"> 
+    <title> Pushcart Dashboard </title>
+    <link rel="stylesheet" href="assets/bootstrap.css">
+    <link rel="stylesheet" href="assets/admin.css">
+    <link rel="stylesheet" href="assets/simplesidebar.css">
+    <link rel="stylesheet" href="assets/admin.css"> 
     <link rel="stylesheet" href="assets/table.css">
+    <link rel="stylesheet" href="assets/charts.css">
+    <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
   </head>
   <body>
-   
+    
+     <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+              <a href="http://www.gopushcart.com" target="_blank">Pushcart</a>
+            </li>
+        </ul>
+    </div>
 
-  <!--   <div class='page-content inset'> -->
-    <!-- CUSTOM BOOTSTRAP ELEMENT -->
-        <!-- table header -->
-    <div class="collapse-custom">
-      <!-- TABLE HEADING -->
+    <!-- title header -->
+    <div id="page-content-wrapper">
+      <div class="content-header">
+       <h1>Admin</h1>
+      </div>
+    <div class='page-underscore-head'></div>
+
+    <!-- users list-->
+        <table class="user-table" role="grid">
+          <thead>
+            <tr>
+              <th>
+                User              
+              </th>
+              
+            <th>
+              Household Size
+            </th>
+          </thead>
+
+          <!-- template for a user row -->
+          <script id="usersTemplate" type="text/template">
+              <td> 
+                <%= user.id %> 
+              </td>
+              <td> 
+                <%= user.household_size %>  
+                <a class="userIdClickable" data-userid="<%= user.id %>"> View Purchases </a> 
+              </td>
+          </script>    
+       
+<!-- user purchase table view -->
+  <!-- table header -->
+  <div class="collapse-custom">
+      <!-- HEADING -->
       <nav class="navbar navbar-default navbar-heading" role="navigation">
         <div class="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="one"><a>Date</a></li>
-            <li class="two"><a>Vendor</a></li>
-            <li class="three"><a>Total Price</a></li>
+            <li class="one"><a title="select 'view purchases' to see more info">Date</a></li>
+            <li class="two"><a title="select 'view purchases' to see more info">Vendor</a></li>
+            <li class="three"><a title="select 'view purchases' to see more info">Total Price</a></li>
           </ul>
         </div>
       </nav>
-    </div>
-    
+  </div>
+  
 
-  <script type="text/html" id="template-purchase-row">
+  <script type="text/template" id="purchase-view-template">
   <nav class="navbar navbar-default" role="navigation">
     <div class="collapse navbar-collapse collapsed" id="bs-example-navbar-collapse-<%= row_number %>" 
           data-toggle="collapse" href="#purchase-info-<%= id %>">
@@ -42,33 +85,29 @@
   <div id="purchase-info-<%= id %>" class="collapse" data-parent="bs-example-navbar-collapse-<%= row_number %>">
     
       <nav class="navbar navbar-default" role="navigation">          
-        <div class="nutrition-panel" id="hidden-left">
-            <h5> total nutritional content of this purchase </h5>
-        </div>
+        <div class="nutrition-panel"></div>
+        
         <div class="items-panel">
                                     
         </div>
-        <div class="item-details-panel">
-        </div>
+       
+       <div class="item-details-panel"></div>
       </nav>
 
     </div> 
 
   </script>
-  
-  <script type="text/html" id="template-nutrition-aggregate">
-
-  </script>
 
   <script type="text/html" id="template-purchase-items">
-  <div id="hidden-right">
-    <h5> what you bought </h5>
+  <div id="hidden-content">
+    <h5> items purchased </h5>
     <table class="table">
         <thead>
           <tr>
             <th> Category </th>
             <th> Description </th>
             <th> Price </th>
+            <th> &nbsp; Vit A &nbsp; &nbsp; &nbsp; Vit C &nbsp; &nbsp; &nbsp; Iron &nbsp; &nbsp; Calcium </th>
           </tr>
         </thead>
         <tbody>        
@@ -78,86 +117,58 @@
   </script>
 
   <script type="text/html" id="template-purchase-item-details">
-  <h5>Item Details</h5>
-  <div class="charts" id= >
+
+  <div class="charts">
   </div>
   </script>
 
   <script type="text/html" id="template-purchase-item-row">
     <tr>
-      <td> <span class="item-category"> 
-      <href="<%= link %>"><%= category %> </span></td>
+      <td class="item-des"> <%= category %> </td>
       <td class="item-des"> <%= description %> </td>
       <td class="item-des"> <%= total_price %> </td>
+      <td class="item-charts"></td>
     </tr>
   </script>
 
 
-
+  <script>
+    // var pushcartHost ='http://localhost:3000/api/v1';
+    var pushcartHost = 'http://gopushcart.com/api/v1';
+  </script>
+       
   <!-- require lib files -->
   <script src="js/lib/jquery.js"></script>
-  <script src="js/lib/chart.js"></script>
-  <script src="js/lib/bootstrap.js"></script>
   <script src="js/lib/underscore.js"></script>
   <script src="js/lib/backbone.js"></script>
+  <script src="js/lib/bootstrap.js"></script>
+  
+  <!-- script src="js/lib/backgrid.js"></script> -->
+  <script src="js/lib/chart.js"></script>
   <script src="js/lib/moment.js"></script>
   <script src="js/lib/backbone.localStorage.js"></script>
-  
-  <!-- make api call when page loads -->
-  <script>
-  var pushcartHost ='http://localhost:3000/api/v1';
-  var USER_ID = 1;
-  </script>
-  
-   <!-- require modules -->
+
+  <!-- require modules -->
+  <script src="js/config.js"></script>
+
+  <!-- models -->
+  <script src="js/models/user.js"></script>
   <script src="js/models/purchase.js"></script>
-  <script src="js/models/purchaseDetails.js"></script>
   <script src="js/models/purchaseItem.js"></script>
+
+  <!-- collections -->
+  <script src="js/collections/users.js"></script>
   <script src="js/collections/purchases.js"></script> 
   <script src="js/collections/purchaseItems.js"></script>
-  <script src="js/views/purchaseItems.js"></script>
-  <script src="js/views/purchases.js"></script>
-  <script src="js/views/purchaseDetails.js"></script>
-  <script src="js/views/itemDetail.js"></script>
-  <script src="js/views/purchaseNutrition.js"></script>
-  <script src="js/views/dashboard.js"></script>
-  <script src="js/routers/router.js"></script>
-  
+ 
+  <!-- views -->
+  <script src="js/views/user.js"></script> 
+  <script src="js/views/dashboard.js"></script> 
+  <script src="js/views/purchase.js"></script>
+  <script src="js/views/purchaseItems.js"></script> 
+  <script src="js/views/purchaseItemDetail.js"></script>
+  <script src="js/views/nutritioncharts.js"></script>
 
-  
-  <script type="text/javascript">
-
-  
-    $(function() {
-     
-      //var fetchOption = {data:{user_id: 1}};
-
-      Backbone.ajax = function() {
-        console.log(arguments);
-        var options = arguments[0];
-        var data = options.data || {};
-        data.user_id = USER_ID;
-        options.data = data;
-        console.log(arguments);
-        return Backbone.$.ajax.apply(Backbone.$, arguments);
-      };
-
-      var purchases = new PurchaseCollection();
-
-      purchases.on("sync", function() {
-        this.each(function(model, idx) {
-          var options = {
-            rowNumber: idx + 1,
-            model: model
-          };
-          $(".collapse-custom").append(new PurchaseView(options).render().el);
-        });
-      });
-
-      purchases.fetch();
-
-    });
-
-  </script>
   </body>
 </html>
+

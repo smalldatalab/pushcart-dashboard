@@ -233,7 +233,7 @@ window.Chart = function(context){
       datasetStrokeWidth : 2,
       datasetFill : true,
       animation : true,
-      animationSteps : 60,
+      animationSteps : 65,
       animationEasing : "easeOutQuart",
       onAnimationComplete : null
     };
@@ -264,21 +264,21 @@ window.Chart = function(context){
   this.Doughnut = function(data,options){
   
     chart.Doughnut.defaults = {
-      segmentShowStroke : true,
+      segmentShowStroke : false,
       segmentStrokeColor : "#fff",
-      segmentStrokeWidth : 2,
-      percentageInnerCutout : 50,
+      segmentStrokeWidth : 1,
+      percentageInnerCutout : 60,
       animation : true,
       animationSteps : 100,
-      animationEasing : "easeOutBounce",
+      animationEasing : "easeInBack",
       animateRotate : true,
       animateScale : false,
       onAnimationComplete : null,
 
       labelFontFamily : "Arial",
-      labelFontStyle : "normal",
-      labelFontSize : 24,
-      labelFontColor : "#666"
+      labelFontStyle : "bold",
+      labelFontSize : 16,
+      labelFontColor : "#C53E3E"
     };    
 
     var config = (options)? mergeChartConfig(chart.Doughnut.defaults,options) : chart.Doughnut.defaults;
