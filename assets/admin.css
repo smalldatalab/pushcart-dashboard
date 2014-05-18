@@ -1,15 +1,25 @@
 body {
   background-color: whitesmoke; }
 
-/*
-.placeholder-purchase-text{
-  width: 30%;
-  position: relative;
-  top: 80px;
-  left: -140px;
+#bar-charts p {
+  border-bottom: 3px solid rgba(71, 70, 75, 0.6);
+  color: #7c7c7c;
+  width: 60%;
   float: right;
-  color: rgb(220,220,220);
-}*/
+  margin-right: 40px;
+  margin-top: -370px;
+  /* color: white; */
+  font-size: 25px;
+  /* padding-top: 24px; */
+  padding-bottom: 10px;
+  font-weight: bold; }
+
+#bar-charts-container {
+  margin-top: -300px;
+  width: 50%;
+  margin-right: 160px;
+  float: right; }
+
 #admin-panel {
   position: relative;
   top: 60px;
@@ -32,7 +42,7 @@ body {
   /*width: 100%;*/
   width: 20%;
   position: relative;
-  right: -230px;
+  right: -180px;
   top: 60px; }
 
 .user-table th {
@@ -44,21 +54,9 @@ body {
   padding-left: 5px; }
 
 .user-table td, .table tr {
-  font: 13px;
+  font: 13px/13px Arial, Sans-serif;
   padding: 10px;
   margin: 20px;
+  /*background-color: rgba(71,70,75, 0.6);*/
   background-color: #f8f8f8;
   color: #777777; }
-
-/*.user-selected{
-  font: 13px;
-  padding: 10px;
-  margin: 20px;
-  background-color: rgba(242, 217, 142, 0.4);
-  color: rgb(119, 119, 119);
-
-}
-*/
-.active {
-  background: red;
-  color: white; }

@@ -1,5 +1,5 @@
-
 Pushcart.Views.User = Backbone.View.extend({
+  
   tagName: 'tr', 
   template: _.template($("#usersTemplate").html()),
   
@@ -8,12 +8,13 @@ Pushcart.Views.User = Backbone.View.extend({
     this.$el.append(output);
     return this;
   },
-
+  
   events: {
-    "click .userIdClickable": "reRenderPurchases",
+    "click .userIdClickable": "reRenderPurchases"  
   },
-
+  
   reRenderPurchases: function(e){
+    var self = this;
     var userId = $(e.currentTarget).data('userid');
     var purchasesCollection = new Pushcart.Collections.Purchases({ userId: userId });
     var $collapser = $('.collapse-custom')
@@ -26,6 +27,14 @@ Pushcart.Views.User = Backbone.View.extend({
         });
         $collapser.append(purchaseView.render().el);
       });
+
+      self.reRenderPurchaseBreakdown(purchasesCollection);
     });
+  },
+  
+  reRenderPurchaseBreakdown: function(purchasesCollection) {
+    Pushcart.purchasesBreakdown.setCollection(purchasesCollection);
+    Pushcart.purchasesBreakdown.render();
   }
+  
 });
