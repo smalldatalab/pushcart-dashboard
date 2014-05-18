@@ -1,14 +1,12 @@
-
-
 #wrapper {
   padding-left: 250px;
   transition: all 0.4s ease 0s;
 }
 
 #sidebar-wrapper {
-  margin-left: -250px;
-  left: 250px;
-  width: 180px;
+/*  margin-left: -250px;
+  left: 250px;*/
+  width: 140px;
   background:rgb(71,70,75);
   position: fixed;
   height: 100%;
@@ -84,7 +82,7 @@
 .content-header h1 {
   position: relative;
   /*margin: 0;*/
-  margin-left: 320px;
+  margin-left: 280px;
   line-height: 65px;
   display: inline-block;
   color: rgb(124, 124, 124);
@@ -134,8 +132,8 @@
 }
 .page-underscore-head{
   border-bottom: 3px solid rgb(242, 217, 142);
-  width: 80%;
+  width: 86%;
   position: relative;
   top: 20px;
-  left: 220px;
+  left: 165px;
 }

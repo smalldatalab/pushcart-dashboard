@@ -1,5 +1,6 @@
 // handles top-level display of purchase history (date, vendor, price)
 Pushcart.Views.Purchase = Backbone.View.extend({
+  
   template: _.template($('#purchase-view-template').html()),
   className: 'purchase-view',
  
@@ -13,7 +14,7 @@ Pushcart.Views.Purchase = Backbone.View.extend({
 
     var data = _.extend({}, this.model.toJSON(), {
       row_number: this.options.rowNumber, 
-      formatted_purchase_date: PushCart.DateFormatter.format(this.model.get('purchase_date'))
+      formatted_purchase_date: Pushcart.DateFormatter.format(this.model.get('purchase_date'))
     }); 
 
     this.$el.html(this.template(data)); 
@@ -31,7 +32,5 @@ Pushcart.Views.Purchase = Backbone.View.extend({
     });
     return this;
   }
+  
 });
-
-
-
