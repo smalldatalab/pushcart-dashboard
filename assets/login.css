@@ -1,0 +1,17 @@
+.dialog{
+/*  border: 1px solid black;*/
+  background: white;
+  width: 90%;
+  height: 100%;
+  position: relative;
+  margin-top: -500px;
+  margin-left: 140px;
+  padding-top: 300px;
+  padding-bottom: 400px;
+  padding-left: 300px;
+}
+
+.ui-dialog-titlebar-close {
+  visibility: hidden;
+}
+

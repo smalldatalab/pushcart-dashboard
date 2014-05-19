@@ -1,6 +1,25 @@
 body {
   background-color: whitesmoke; }
 
+#bar-charts p {
+  border-bottom: 3px solid rgba(71, 70, 75, 0.6);
+  color: #7c7c7c;
+  width: 60%;
+  float: right;
+  margin-right: 40px;
+  margin-top: -370px;
+  /* color: white; */
+  font-size: 25px;
+  /* padding-top: 24px; */
+  padding-bottom: 10px;
+  font-weight: bold; }
+
+#bar-charts-container {
+  margin-top: -300px;
+  width: 50%;
+  margin-right: 160px;
+  float: right; }
+
 #admin-panel {
   position: relative;
   top: 60px;
@@ -23,7 +42,7 @@ body {
   /*width: 100%;*/
   width: 20%;
   position: relative;
-  right: -230px;
+  right: -180px;
   top: 60px; }
 
 .user-table th {
