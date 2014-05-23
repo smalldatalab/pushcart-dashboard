@@ -1,7 +1,7 @@
 Pushcart.Views.User = Backbone.View.extend({
   
   tagName: 'tr', 
-  template: _.template($("#usersTemplate").html()),
+  template: _.template($('#usersTemplate').html()),
   
   render: function(){ 
     var output = this.template({user: this.model.toJSON()});
@@ -10,7 +10,7 @@ Pushcart.Views.User = Backbone.View.extend({
   },
   
   events: {
-    "click .userIdClickable": "reRenderPurchases"  
+    'click .userIdClickable': 'reRenderPurchases'  
   },
   
   reRenderPurchases: function(e){
@@ -18,7 +18,7 @@ Pushcart.Views.User = Backbone.View.extend({
     var userId = $(e.currentTarget).data('userid');
     var purchasesCollection = new Pushcart.Collections.Purchases({ userId: userId });
     var $collapser = $('.collapse-custom')
-    $collapser.find(".purchase-view").remove();
+    $collapser.find('.purchase-view').remove();
     purchasesCollection.fetch().done(function() {
       purchasesCollection.each(function(model){
         var purchaseView = new Pushcart.Views.Purchase({

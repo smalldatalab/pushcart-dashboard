@@ -1,7 +1,7 @@
 Pushcart.Views.PurchaseItems = Backbone.View.extend({
   
-  template: _.template($('#template-purchase-items').html()),
-  rowTemplate: _.template($('#template-purchase-item-row').html()),
+  template: _.template($('#purchaseItemsTemplate').html()),
+  rowTemplate: _.template($('#purchaseItemRowTemplate').html()),
   
   initialize: function(options) {
     this.options = options;
