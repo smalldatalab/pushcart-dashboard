@@ -5,54 +5,92 @@
     <meta http-equiv="X-UA-Compatiable" content="IE=edge,chrome=1"> 
     <title> Pushcart Dashboard </title>
     <link rel="stylesheet" href="assets/bootstrap.css">
-    <link rel="stylesheet" href="assets/admin.css">
+    <link rel="stylesheet" href="assets/login.css"> 
     <link rel="stylesheet" href="assets/simplesidebar.css">
     <link rel="stylesheet" href="assets/admin.css"> 
     <link rel="stylesheet" href="assets/table.css">
-    <link rel="stylesheet" href="assets/charts.css">
     <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
     <link rel="stylesheet" href="assets/jquery.jqplot.css"> 
-    <link rel="stylesheet" href="assets/smoothness/jquery-ui-1.10.4.custom.css">
   </head>
   <body>
     
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">
-          <a href="http://www.gopushcart.com" target="_blank">Pushcart</a>
-        </li>
-      </ul>
+    <!-- log-in -->
+    <div class="wrap">
+      <div class="main">    
+      </div>  
+    </div> 
+   
+    <!-- side navigation bar -->  
+    <div class="sidebar">
+    </div> 
+
+    <!-- dashboard header  -->
+    <div class="content-header">
     </div>
 
-    <!-- dashboard header -->
-    <div id="page-content-wrapper">
-      <div class="content-header">
-        <h1>Admin</h1>
-      </div>
-    <div class='page-underscore-head'></div>
-
-    <!-- users list-->
+    <!-- users list -->
     <table class="user-table" role="grid">
-      <thead>
-        <tr>
-          <th>
-            User              
-          </th>  
-          <th>
-            Household Size
-          </th>
-      </thead>
     </table>
 
-    <!-- >> user-total-purchases bar charts -->
-    <div id="bar-charts">
-      <p> Purchases Overview </p>
-      <div id="bar-charts-container"></div>
+    <!-- user-total-purchases bar charts -->
+    <div class="bar-charts">
+    </div>
+    
+    <div id="bar-charts-container">
+    </div>
+    
+    <!-- purchase table -->
+    <div class="collapse-custom">
     </div>
 
-    <!-- purchase table header -->
-    <div class="collapse-custom">
+    <!-- template for sidebar -->
+    <script id="sideBarTemplate" type="text/template">
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand">
+            <a href="http://www.gopushcart.com" target="_blank">Pushcart</a>
+          </li>
+        </ul>
+      </div>
+    </script>
+
+    <!-- template for dashboard header -->
+    <script id="adminHeaderTemplate" type="text/template">
+       <h1>Admin</h1>
+       <div class='page-underscore-head'></div>
+    </script>
+
+    <!-- template for users table header -->
+    <script id="usersHeaderTemplate" type="text/template">
+        <thead>
+          <tr>
+            <th>
+              User              
+            </th>  
+            <th>
+              Household Size
+            </th>
+        </thead>
+    </script>
+
+    <!-- template for users list table -->
+    <script id="usersTemplate" type="text/template">
+      <td> 
+        <%= user.id %> 
+      </td>
+      <td> 
+        <%= user.household_size %>  
+        <a class="userIdClickable" data-userid="<%= user.id %>"> View Purchases </a> 
+      </td>
+    </script> 
+
+    <!-- template for purchase section header -->
+    <script id="purchasesSectionHeaderTemplate" type="text/template">
+      <p> Purchases Overview </p>
+    </script>
+
+    <!-- template for purchase table header --> 
+    <script id="purchasesViewHeaderTemplate" type="text/template">
       <nav class="navbar navbar-default navbar-heading" role="navigation">
         <div class="navbar-collapse">
           <ul class="nav navbar-nav">
@@ -62,157 +100,138 @@
           </ul>
         </div>
       </nav>
-    </div>
-
-  <!-- TEMPLATES -->
-
-  <!-- template for a user row -->
-  <script id="usersTemplate" type="text/template">
-      <td> 
-        <%= user.id %> 
-      </td>
-      <td> 
-        <%= user.household_size %>  
-        <a class="userIdClickable" data-userid="<%= user.id %>"> View Purchases </a> 
-      </td>
-  </script> 
-
-  <!-- template for purchase table -->
-  <script type="text/template" id="purchase-view-template">
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="collapse navbar-collapse collapsed" id="bs-example-navbar-collapse-<%= row_number %>" 
-            data-toggle="collapse" href="#purchase-info-<%= id %>">
-        <ul class="nav navbar-nav">
-          <li class="one"><a><%= formatted_purchase_date %></a></li>
-          <li class="two"><a><%= vendor %></a></li>
-          <li class="three"><a><%= total_price %></a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div id="purchase-info-<%= id %>" class="collapse" data-parent="bs-example-navbar-collapse-<%= row_number %>">
-    
-      <nav class="navbar navbar-default" role="navigation">          
-        <div class="nutrition-panel"></div>
-        
-        <div class="items-panel">
-                                    
-        </div>
-       
-       <div class="item-details-panel"></div>
-      </nav>
-
-    </div> 
-  </script>
-
-  <!-- template for purchase dropdown header -->
-  <script type="text/html" id="template-purchase-items">
-  <div id="hidden-content">
-    <h5> items purchased </h5>
-    <table class="table">
-        <thead>
-          <tr>
-            <th> Category </th>
-            <th> Description </th>
-            <th> Price </th>
-            <th> &nbsp; Vit A &nbsp; &nbsp; &nbsp; Vit C &nbsp; &nbsp; &nbsp; Iron &nbsp; &nbsp; Calcium </th>
-          </tr>
-        </thead>
-        <tbody>        
-        </tbody>    
-    </table>
-  </div>
-  </script>
-
-  <!-- template for purchase dropdown content pt 1 -->
-  <script type="text/html" id="template-purchase-item-details">
-    <div class="charts">
-    </div>
-  </script>
-
-  <!-- template for purchase dropdown content pt 2 -->
-  <script type="text/html" id="template-purchase-item-row">
-    <tr>
-      <td class="item-des"> <%= category %> </td>
-      <td class="item-des"> <%= description %> </td>
-      <td class="item-des"> <%= total_price %> </td>
-      <td class="item-charts"></td>
-    </tr>
-  </script>
-
-  <!-- JS INCLUDES -->
-
-  <script>
-    // var pushcartHost ='http://localhost:3000/api/v1';
-    var pushcartHost = 'http://gopushcart.com/api/v1';
-  </script>
-       
-  <!-- require lib files -->
-  <script src="js/lib/jquery.js"></script>
-  <script src="js/lib/underscore.js"></script>
-  <script src="js/lib/backbone.js"></script>
-  <script src="js/lib/jquery-ui-1.10.4.custom.js"></script>   
-  <script src="js/lib/bootstrap.js"></script>
-  <script src="js/lib/jquery.jqplot.min.js"></script>
-  <!--[if lt IE 9]><script language="javascript" type="text/javascript" 
-  src="js/lib/excanvas.min.js"></script> <![endif]-->
-  <script src="js/lib/jqplot.barRenderer.min.js"></script>
-  <script src="js/lib/jqplot.pointLabels.min.js"></script>
-  <script src="js/lib/jqplot.categoryAxisRenderer.min.js"></script>
-  <script src="js/lib/chart.js"></script>
-  <script src="js/lib/moment.js"></script>
-  <script src="js/lib/backbone.localStorage.js"></script>
-  <script src="js/auth.js"></script>
-
-  <!-- require modules -->
-  <script src="js/config.js"></script>
-
-  <!-- models -->
-  <script src="js/models/user.js"></script>
-  <script src="js/models/purchase.js"></script>
-  <script src="js/models/purchaseItem.js"></script>
-
-  <!-- collections -->
-  <script src="js/collections/users.js"></script>
-  <script src="js/collections/purchases.js"></script> 
-  <script src="js/collections/purchaseItems.js"></script>
- 
-  <!-- views -->
-  <script src="js/views/user.js"></script> 
-  <script src="js/views/purchase.js"></script>
-  <script src="js/views/purchaseItems.js"></script> 
-  <script src="js/views/purchaseItemDetail.js"></script>
-  <script src="js/views/nutritionCharts.js"></script>
-  <script src="js/views/purchasesBreakdown.js"></script>
-
-  <!-- application logic -->
-  <script src="js/index.js"></script> 
-
-    <!-- log-in -->
-    <script>
-
-      $(function(){
-        $(".dialog").dialog();
-
-       $("form").on('submit', function(event) {
-        event.preventDefault();
-        var $dialog = $('.dialog');
-        var username = $dialog.find('input[name="username"]').val();
-        var password = $dialog.find('input[name="password"]').val();
-        getAccessToken(username, password);
-       });
-      });
-
     </script>
 
-    <div class="dialog">
-      <form action="http://gopushcart.com/api/v1/oauth/token" method="POST">
-         Username: <input type="text" name="username" /> 
-         Password: <input type="password" name="password" /> 
-        <input type="submit" value="submit">
-      </form>
-    </div>
-    
-  </body>
-</html>
+    <!-- template for purchases table --> 
+    <script id="purchaseViewTemplate" type="text/template">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse collapsed" id="bs-example-navbar-collapse-<%= row_number %>" 
+              data-toggle="collapse" href="#purchase-info-<%= id %>">
+          <ul class="nav navbar-nav">
+            <li class="one"><a><%= formatted_purchase_date %></a></li>
+            <li class="two"><a><%= vendor %></a></li>
+            <li class="three"><a><%= total_price %></a></li>
+          </ul>
+        </div>
+      </nav>
 
+      <div id="purchase-info-<%= id %>" class="collapse" data-parent="bs-example-navbar-collapse-<%= row_number %>"> 
+        <nav class="navbar navbar-default" role="navigation">             
+          <div class="items-panel">                                
+          </div>    
+        </nav>
+      </div> 
+    </script>
+
+    <!-- template for purchase dropdown header -->
+    <script id="purchaseItemsTemplate" type="text/html">
+      <div id="hidden-content">
+        <h5> items purchased </h5>
+        <table class="table">
+            <thead>
+              <tr>
+                <th> Category </th>
+                <th> Description </th>
+                <th> Price </th>
+                <th> &nbsp; Vit A &nbsp; &nbsp; &nbsp; Vit C &nbsp; &nbsp; &nbsp; Iron &nbsp; &nbsp; Calcium </th>
+              </tr>
+            </thead>
+            <tbody>        
+            </tbody>    
+        </table>
+      </div>
+    </script>
+
+    <!-- template for purchase dropdown content pt 1 -->
+    <script id="purchaseItemDetailsTemplate" type="text/html">
+      <div class="charts">
+      </div>
+    </script>
+
+    <!-- template for purchase dropdown content pt 2 -->
+    <script id="purchaseItemRowTemplate" type="text/html">
+      <tr>
+        <td class="item-des"> <%= category %> </td>
+        <td class="item-des"> <%= description %> </td>
+        <td class="item-des"> <%= total_price %> </td>
+        <td class="item-charts"></td>
+      </tr>
+    </script>
+     
+    <!-- template for login -->
+    <script type="text/template" id="login-template">
+      <div class ="login-container">
+        <form "http://gopushcart.com/api/v1/oauth/token" method="POST">
+          <ul>
+            Username:
+            <li> 
+              <input type="text" name="username">
+            </li>
+            <br>
+            Password:
+            <li> 
+              <input type="password" name="password">
+            </li>
+            <br>
+            <li> 
+              <button type="submit" id="login_button" value="submit"> Login </button> 
+            </li>
+          </ul>                          
+        </form>                      
+      </div>
+    </script>
+       
+    <!-- JS INCLUDES -->
+    <script>
+      // var pushcartHost ='http://localhost:3000/api/v1';
+      var pushcartHost = 'http://gopushcart.com/api/v1';
+    </script>
+      
+    <!-- require lib files -->
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/underscore.js"></script>
+    <script src="js/lib/backbone.js"></script>   
+    <script src="js/lib/bootstrap.js"></script>
+    <script src="js/lib/jquery.jqplot.min.js"></script>
+    <!--[if lt IE 9]><script language="javascript" type="text/javascript" 
+    src="js/lib/excanvas.min.js"></script> <![endif]-->
+    <script src="js/lib/jqplot.barRenderer.min.js"></script>
+    <script src="js/lib/jqplot.pointLabels.min.js"></script>
+    <script src="js/lib/jqplot.categoryAxisRenderer.min.js"></script>
+    <script src="js/lib/chart.js"></script>
+    <script src="js/lib/moment.js"></script>
+    <script src="js/lib/backbone.localStorage.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- require modules -->
+    <script src="js/config.js"></script>
+
+    <!-- models -->
+    <script src="js/models/user.js"></script>
+    <script src="js/models/purchase.js"></script>
+    <script src="js/models/purchaseItem.js"></script>
+    
+    <!-- collections -->
+    <script src="js/collections/users.js"></script>
+    <script src="js/collections/purchases.js"></script> 
+    <script src="js/collections/purchaseItems.js"></script>
+    
+    <!-- views -->
+    <script src="js/views/login.js"></script>
+    <script src="js/views/sidebar.js"></script>
+    <script src="js/views/dashboardHeader.js"></script>
+    <script src="js/views/purchasesSectionHeader.js"></script>
+    <script src="js/views/userHeader.js"></script> 
+    <script src="js/views/user.js"></script> 
+    <script src="js/views/purchasesTableHeader.js"></script>
+    <script src="js/views/purchase.js"></script>
+    <script src="js/views/purchaseItems.js"></script> 
+    <script src="js/views/purchaseItemDetail.js"></script>
+    <script src="js/views/nutritionCharts.js"></script>
+    <script src="js/views/purchasesBreakdown.js"></script>
+
+    <!-- application logic -->
+    <script src="js/index.js"></script> 
+        
+  </body>
+  </html>

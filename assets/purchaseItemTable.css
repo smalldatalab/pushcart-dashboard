@@ -1,22 +1,10 @@
 .collapse-custom {
-  /*position: fixed;
-  top: 300px;
-  width: 100%;
-  right: 60px;*/
   float: right;
   width: 75%;
-  cursor: default;
-  /*  position: absolute;
-    top: 0;
-    right: 0;
-    */ }
+  cursor: default; }
   .collapse-custom .navbar-tool {
     display: none; }
   .collapse-custom .navbar {
-    /*width: 75%; //added*/
-    /*    position: relative;
-        top: 30px;
-        left: 20%;*/
     margin-bottom: 0;
     border-radius: 0;
     cursor: pointer;
@@ -27,8 +15,7 @@
       list-style-type: none;
       padding-left: 15px; }
   .collapse-custom .navbar:last-of-type {
-    border-bottom: 1px solid #e7e7e7;
-    /*  cursor: default;*/ }
+    border-bottom: 1px solid #e7e7e7; }
   .collapse-custom .navbar-heading {
     background-color: rgba(71, 70, 75, 0.6);
     cursor: default;
@@ -82,3 +69,6 @@
     /* margin-left: 20px;*/ }
   .collapse-custom .item-charts {
     cursor: default; }
+
+.collapse-custom li {
+  display: inline; }

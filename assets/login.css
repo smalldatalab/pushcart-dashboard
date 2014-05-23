@@ -1,17 +1,26 @@
-.dialog{
-/*  border: 1px solid black;*/
-  background: white;
-  width: 90%;
-  height: 100%;
-  position: relative;
-  margin-top: -500px;
-  margin-left: 140px;
-  padding-top: 300px;
-  padding-bottom: 400px;
-  padding-left: 300px;
+.wrap {
+    min-height: 100%;
 }
 
-.ui-dialog-titlebar-close {
-  visibility: hidden;
+.main {
+    overflow:auto;
+    padding-bottom: 150px;
 }
 
+.login-container {
+    border: 1px solid #CCCCCC;
+    margin: 50px auto 0 auto;
+    width: 300px;
+    background:#e5e5e5;
+    padding: 20px;
+}
+
+.login-container ul li {
+    color:white;
+    list-style-type:none;
+}
+
+.login-container button {
+    padding: 10px;
+    width: 100px;
+}

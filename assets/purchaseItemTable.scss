@@ -1,26 +1,13 @@
 .collapse-custom {
-  /*position: fixed;
-  top: 300px;
-  width: 100%;
-  right: 60px;*/
-
  float: right;
  width: 75%;
  cursor: default;
 
-/*  position: absolute;
-  top: 0;
-  right: 0;
-  */
   .navbar-tool {
     display: none; 
   }
 
   .navbar {
-    /*width: 75%; //added*/
-/*    position: relative;
-    top: 30px;
-    left: 20%;*/
     margin-bottom: 0;
     border-radius: 0;
     cursor: pointer;
@@ -38,8 +25,6 @@
 
   .navbar:last-of-type {
     border-bottom: 1px solid #e7e7e7;
-  /*  cursor: default;*/
-
   }
 
   .navbar-heading {
@@ -127,4 +112,8 @@
     .item-charts{
       cursor: default;
     }
+}
+
+.collapse-custom li {
+  display: inline;
 }
