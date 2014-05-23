@@ -7,7 +7,7 @@ Pushcart.Views.NutritionCharts = Backbone.View.extend({
 
   getNutritionalValues: function() { 
     var data = this.model.get('nutritional_data');
-    // if value returns undefined/null, default to 0
+    // if values returns undefined/null, default to 0
     var vitaminAVal = data.vitamin_a_dv || 0;
     var vitaminCVal = data.vitamin_c_dv || 0;
     var ironVal = data.iron_dv || 0;
