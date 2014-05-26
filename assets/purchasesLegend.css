@@ -1,0 +1,57 @@
+table.purchases-legend {
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid #cccccc;
+    position: absolute;
+    font-size: 13px;
+    margin-top: 185px;
+    margin-left: 88%;
+    cursor: default;
+}
+
+td.purchases-legend {
+    vertical-align:middle;
+}
+
+/*
+These rules could be used instead of assigning
+element styles and relying on js object properties.
+*/
+
+
+td.purchases-legend-swatch {
+    padding: 5px;
+    text-align: center;
+}
+
+td.purchases-legend-label {
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+/*tr.purchases-legend:first td.purchases-legend-swatch {
+    padding-top: 0px;
+}
+*/
+/* end of custom element style*/
+
+
+div.purchases-legend-swatch-outline {
+    border: 1px solid #cccccc;
+    padding:1px;
+}
+
+div.purchases-legend-swatch {
+    width:0px;
+    height:0px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 6px;
+    border-right-width: 6px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: solid;
+}
+
+
+

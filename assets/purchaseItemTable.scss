@@ -1,7 +1,9 @@
 .collapse-custom {
- float: right;
- width: 75%;
- cursor: default;
+  width: 80%;
+  cursor: default;
+  position: absolute;
+  margin-top: 450px;
+  margin-left: 100px;
 
   .navbar-tool {
     display: none; 

@@ -1,6 +1,7 @@
 Pushcart.Views.UsersTableHeader = Backbone.View.extend({
   
-  el: '.user-table',
+  tagName: 'table',
+  className: 'user-table',
   
   initialize: function(){
     // _.bindAll(this, 'render')

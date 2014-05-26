@@ -15,44 +15,53 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
       }
     });
     categories = _.keys(categories);
-    categories.sort();
+    // categories.sort();
     return categories;
   },
 
+  collectAllCategories: function() {
+    var categoryNames = _.keys(this.colorsMapping);
+    // categoryNames.sort();
+    return categoryNames;
+  },
+  
+  colorsMapping: {
+   'Snacks'             : 'rgba(202, 198, 223, 0.9)',
+   'Bakery'             : 'rgba(250, 226, 94, 0.9)',
+   'Breakfast'          : 'rgba(250, 226, 94, 0.9)',
+   'Pasta'              : 'rgba(250, 226, 94, 0.9)',
+   'Diary'              : 'rgba(153, 215, 219, 0.9)',
+   'Diary & Eggs'       : 'rgba(153, 215, 219, 0.9)',
+   'Deli'               : 'rgba(246, 135, 89, 0.9)',
+   'Meat'               : 'rgba(246, 135, 89, 0.9)',
+   'Fruit'              : 'rgba(183, 210, 69, 0.9)',
+   'Produce'            : 'rgba(183, 210, 69, 0.9)',
+   'Vegetable & Herbs'  : 'rgba(183, 210, 69, 0.9)',
+   'Grocery'            : 'rgba(250, 225, 203, 0.9)',
+   'Seasonal'           : 'rgba(250, 225, 203, 0.9)',
+   'Bulk'               : 'rgba(250, 225, 203, 0.9)',
+   'Household'          : 'rgba(250, 225, 203, 0.9)'
+  },
+       
   render: function() {
     var container = this.$el;
     container.empty();
-    // each s_n must be purchases.length big
-    // 
-    // s1[0] = 1st category in the 1st purchase
-    // s1[1] = 1st category in the 2nd purchase
-
-    // s1[n] = 1st category in the last purchase
-    // s2[0] = 2nd category in the 1st purchase
-    // s2[1] = 2nd 
-    /*
-    var datasets = [  
-    [ 2, 6, 0, 10],
-    [ 0, 5, 3, 4],
-    [ 14, 9, 3, 0]
-    ];
-    */
-    // http://www.jqplot.com/tests/bar-charts.php
 
     var aggregates = this.collection.map(function(purchase) {      
      return purchase.aggregates();
     });
 
-    var categories = this.collectCategories(aggregates);
+    //var categories = this.collectCategories(aggregates);
+    var categories = this.collectAllCategories();
 
     var datasets = _.map(categories, function(category) {
-    var row = _.map(aggregates, function(aggregate) {
-      var qtyInCategory = aggregate[category];
-      return qtyInCategory ? qtyInCategory : 0;        
+      var row = _.map(aggregates, function(aggregate) {
+        var qtyInCategory = aggregate[category];
+        return qtyInCategory ? qtyInCategory : 0;        
+      });
+      return row;
     });
-      return row;          
-    });
-
+               
     var labels = this.collection.map(function(purchase) {
       return purchase.get('purchase_date').substr(0, 10);
     });
@@ -62,11 +71,20 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
     }
     return this;
   },
-  
+   
+
   renderPlot: function(datasets, labels, categories) {
+
     var seriesLabels = _.map(categories, function(category) {
       return { label: category};
     });
+
+    var mapping = this.colorsMapping;
+
+    var colorsForLabels =  _.map(categories, function(category) {
+      var defaultColor = 'rgba(250, 225, 203, 0.9)';
+      return mapping[category] ? mapping[category] : defaultColor;
+    });    
 
     var plot = $.jqplot('bar-charts-container', datasets, {
       // Tell the plot to stack the bars.
@@ -79,7 +97,8 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
           barMargin: 30,
           // Highlight bars when mouse button pressed.
           // Disables default highlighting on mouse over.
-          highlightMouseDown: true   
+          highlightMouseDown: true,
+          varyBarColor: true  
         },
         pointLabels: {        
           show: false
@@ -87,6 +106,8 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
       },
 
     series: seriesLabels,
+
+    seriesColors: colorsForLabels, 
           
     axes: {
       xaxis: {
@@ -103,7 +124,7 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
     },
 
     legend: {
-      show: true,
+      show: false,
       location: 'e',
       placement: 'outside'
     }      

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/table.css">
     <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
     <link rel="stylesheet" href="assets/jquery.jqplot.css"> 
+    <link rel="stylesheet" href="assets/purchasesLegend.css"> 
   </head>
   <body>
     
@@ -19,22 +20,18 @@
       <div class="main">    
       </div>  
     </div> 
-   
-    <!-- side navigation bar -->  
-    <div class="sidebar">
-    </div> 
 
     <!-- dashboard header  -->
     <div class="content-header">
     </div>
 
-    <!-- users list -->
-    <table class="user-table" role="grid">
-    </table>
-
     <!-- user-total-purchases bar charts -->
     <div class="bar-charts">
     </div>
+    
+    <!-- purchases overview legend -->
+    <table class="purchases-legend">
+    </table>
     
     <div id="bar-charts-container">
     </div>
@@ -42,18 +39,7 @@
     <!-- purchase table -->
     <div class="collapse-custom">
     </div>
-
-    <!-- template for sidebar -->
-    <script id="sideBarTemplate" type="text/template">
-      <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-          <li class="sidebar-brand">
-            <a href="http://www.gopushcart.com" target="_blank">Pushcart</a>
-          </li>
-        </ul>
-      </div>
-    </script>
-
+    
     <!-- template for dashboard header -->
     <script id="adminHeaderTemplate" type="text/template">
        <h1>Admin</h1>
@@ -62,25 +48,18 @@
 
     <!-- template for users table header -->
     <script id="usersHeaderTemplate" type="text/template">
-        <thead>
-          <tr>
-            <th>
-              User              
-            </th>  
-            <th>
-              Household Size
-            </th>
-        </thead>
+      <thead>
+        <tr>
+          <th>
+            User:              
+          </th>  
+      </thead>
     </script>
 
     <!-- template for users list table -->
     <script id="usersTemplate" type="text/template">
       <td> 
-        <%= user.id %> 
-      </td>
-      <td> 
-        <%= user.household_size %>  
-        <a class="userIdClickable" data-userid="<%= user.id %>"> View Purchases </a> 
+        <a class="userIdClickable" data-userid="<%= user.id %>"> <%= user.id %> </a> 
       </td>
     </script> 
 
@@ -88,7 +67,81 @@
     <script id="purchasesSectionHeaderTemplate" type="text/template">
       <p> Purchases Overview </p>
     </script>
+    
+    <!-- template for purchases overview legend -->
+    <script id="purchasesLegendTemplate" type="text/template">
+    
+      <tbody>
+        <tr class="purchases-legend"> 
+          <td class="purchases-legend purchases-legend-swatch"> 
+            <div class="purchases-legend-swatch-outline">
+              <div class="purchases-legend-swatch" style="border-color: rgba(250, 226, 94, 0.9);">
+              </div>
+            </div>
+          </td>
+          <td class="purchases-legend purchases-legend-label"> 
+            Carbohydrate
+          </td>
+        </tr>
+        <tr class="purchases-legend">
+          <td class="purchases-legend purchases-legend-swatch" style="text-align: center;">
+            <div class="purchases-legend-swatch-outline">
+              <div class="purchases-legend-swatch" style="border-color: rgba(153, 215, 219, 0.9);">
+              </div>
+            </div>
+          </td>
+          <td class="purchases-legend purchases-legend-label">
+            Diary
+          </td>
+        </tr>
+        <tr class="purchases-legend">
+          <td class="purchases-legend purchases-legend-swatch">
+            <div class="purchases-legend-swatch-outline">
+              <div class="purchases-legend-swatch" style="border-color: rgba(246, 135, 89, 0.9);">
+              </div>
+            </div>
+          </td>
+          <td class="purchases-legend purchases-legend-label"> 
+            Meat
+          </td>
+        </tr>
+        <tr class="purchases-legend">
+          <td class="purchases-legend purchases-legend-swatch">
+            <div class="purchases-legend-swatch-outline">
+              <div class="purchases-legend-swatch" style="border-color: rgba(183, 210, 69, 0.9);">
+              </div>
+            </div>
+          </td>
+          <td class="purchases-legend purchases-legend-label"> 
+            Produce 
+          </td>
+        </tr>
+        <tr class="purchases-legend">
+          <td class="purchases-legend purchases-legend-swatch">
+            <div class="purchases-legend-swatch-outline">
+              <div class="purchases-legend-swatch" style="border-color: rgba(202, 198, 223, 0.9);">
+              </div>
+            </div>
+          </td>
+          <td class="purchases-legend purchases-legend-label"> 
+            Sweets
+          </td>
+        </tr>
+        <tr class="purchases-legend">
+          <td class="purchases-legend purchases-legend-swatch">
+            <div class="purchases-legend-swatch-outline">
+              <div class="purchases-legend-swatch" style="border-color: rgba(250, 225, 203, 0.9);">
+              </div>
+            </div>
+          </td>
+          <td class="purchases-legend purchases-legend-label"> 
+            Miscellaneous
+          </td>
+        </tr>
+      </tbody>
 
+    </script>
+    
     <!-- template for purchase table header --> 
     <script id="purchasesViewHeaderTemplate" type="text/template">
       <nav class="navbar navbar-default navbar-heading" role="navigation">
@@ -218,11 +271,12 @@
     
     <!-- views -->
     <script src="js/views/login.js"></script>
-    <script src="js/views/sidebar.js"></script>
+    <!-- script src="js/views/sidebar.js"></script> -->
     <script src="js/views/dashboardHeader.js"></script>
     <script src="js/views/purchasesSectionHeader.js"></script>
     <script src="js/views/userHeader.js"></script> 
     <script src="js/views/user.js"></script> 
+    <script src="js/views/purchasesLegend.js"></script>
     <script src="js/views/purchasesTableHeader.js"></script>
     <script src="js/views/purchase.js"></script>
     <script src="js/views/purchaseItems.js"></script> 

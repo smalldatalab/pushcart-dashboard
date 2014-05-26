@@ -31,26 +31,26 @@ function getAccessToken( clientId, clientSecret ) {
             var view = new Pushcart.Views.User({  
               model: user
             });
-          $('table').append(view.render().el);  
+          $('.user-table').append(view.render().el);  
           });
         }
       });
       
-      // side navigational bar 
-      var sideBar = new Pushcart.Views.Sidebar();
-      $('.sidebar').append(sideBar.render().el);
-
+      // header for users list table
+      var usersTableHeader = new Pushcart.Views.UsersTableHeader();
+      $('body').append(usersTableHeader.render().el);
+      
       // header for dashboard header
       var dashboardHeader = new Pushcart.Views.DashboardHeader();
       $('.content-header').append(dashboardHeader.render().el);
 
-      // header for users list table
-      var usersTableHeader = new Pushcart.Views.UsersTableHeader();
-      $('.user-table').append(usersTableHeader.render().el);
-
       // header for purchases section header
       var purchasesSectionHeader = new Pushcart.Views.PurchasesSectionHeader();
       $('.bar-charts').append(purchasesSectionHeader.render().el);
+
+      // purchases overview legend
+      var purchasesLegend = new Pushcart.Views.PurchasesLegend();
+      $('.purchases-legend').append(purchasesLegend.render().el);
 
       // header for purchases table 
       var purchasesTableHeader = new Pushcart.Views.PurchasesTableHeader();

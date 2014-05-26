@@ -7,62 +7,74 @@ body{
   color: #7c7c7c;
   width: 60%;
   float: right;
-  margin-right: 40px;
-  margin-top: -370px;
-  /* color: white; */
+  margin-right: 90px;
+  margin-top: 55px;
   font-size: 25px;
-  /* padding-top: 24px; */
   padding-bottom: 10px;
-  font-weight: bold; }
+  font-weight: bold;
+}
 
 #bar-charts-container {
-  margin-top: -300px;
   width: 50%;
-  margin-right: 160px;
-  float: right; }
+  margin-right: 190px;
+  float: right; 
+}
 
 #admin-panel {
   position: relative;
   top: 60px;
-  left: 250px; }
+  left: 250px; 
+}
 
 .admin-header-table {
   color: white;
-  background: #8b8b8e; }
+  background: #8b8b8e; 
+}
 
 .userIdClickable{
   cursor: pointer;
-  color: rgba(197, 62, 62, 0.9);
-  font-size: 11px;
-  float: right;
+/*  color: rgba(197, 62, 62, 0.9);
+  font-size: 11px;*/
 }
 
 .userIdClickable:hover{
-  color: rgba(197, 62, 62, 0.7) ;
+/*  color: rgba(197, 62, 62, 0.7) ;
+  width: 90px;*/
 }
 
 .user-table{
-  /*width: 100%;*/
-  width: 20%;
-  position: relative;
-  right: -180px;
-  top: 60px;
+  width: 80px;
+  background:rgb(71,70,75);
+  position: fixed;
+  height: 100%;
+  overflow-y: scroll;
+  color: white;
+  top: 0px;
 }
 
 .user-table th {
-  font-size: 15px;
-  background-color: rgba(71,70,75, 0.6);
+  font-size: 16px;
+  background:rgb(71,70,75);
   color: white;
-  padding-top: 24px;
-  padding-bottom: 24px;
-  padding-left: 5px;
+  padding-top: 25px;
 }
 
-.user-table td, .table tr {
+.user-table td, .user-table tr, .user-table a{
   font: 13px/13px Arial, Sans-serif;
-  padding: 10px;
-  margin: 20px;
-  /*background-color: rgba(71,70,75, 0.6);*/
-  background-color: rgb(248, 248, 248);
-  color: rgb(119, 119, 119);
+  color: white;
+  line-height: 25px;
+  text-indent: 20px;
+  text-align: center;
+  width: 90px;
+}
+
+.user-table td{
+  border-bottom: 1px solid gray;
+  width: 80px;
+}
+
+.user-table a:hover {
+  color: rgb(242, 217, 142);
+/*  background: rgba(255,255,255,0.2);*/
+  text-decoration: none;
 }
