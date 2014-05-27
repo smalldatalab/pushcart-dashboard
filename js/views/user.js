@@ -10,7 +10,7 @@ Pushcart.Views.User = Backbone.View.extend({
   },
   
   events: {
-    'click .userIdClickable': 'reRenderPurchases'  
+    'click .userIdClickable': 'reRenderPurchases'
   },
   
   reRenderPurchases: function(e){
@@ -35,6 +35,12 @@ Pushcart.Views.User = Backbone.View.extend({
   reRenderPurchaseBreakdown: function(purchasesCollection) {
     Pushcart.purchasesBreakdown.setCollection(purchasesCollection);
     Pushcart.purchasesBreakdown.render();
-  }
+  },
   
+  reRenderUserInfoTable: function(){
+    var usersCollection = new Pushcart.Collections.Users 
+    var $user = $('.user-info')
+    $user.find('.user-info-table').remove();
+  }
+
 });

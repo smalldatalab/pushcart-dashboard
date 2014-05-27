@@ -25,6 +25,10 @@
     <div class="content-header">
     </div>
 
+    <!-- user info  -->
+    <div class="user-info">
+    </div>
+
     <!-- user-total-purchases bar charts -->
     <div class="bar-charts">
     </div>
@@ -55,7 +59,19 @@
           </th>  
       </thead>
     </script>
-
+  
+    <!-- template for user info table -->
+    <script id="usersInfoTemplate" type="text/template">
+      <table class='user-info-table'>
+        <td> 
+          <%= user.id %> 
+        </td>
+        <td> 
+          <%= user.household_size %>  
+        </td>
+      </table>
+    </script> 
+    
     <!-- template for users list table -->
     <script id="usersTemplate" type="text/template">
       <td> 
@@ -75,7 +91,7 @@
         <tr class="purchases-legend"> 
           <td class="purchases-legend purchases-legend-swatch"> 
             <div class="purchases-legend-swatch-outline">
-              <div class="purchases-legend-swatch" style="border-color: rgba(250, 226, 94, 0.9);">
+              <div class="purchases-legend-swatch" style="border-color: rgb(250, 226, 94);">
               </div>
             </div>
           </td>
@@ -86,7 +102,7 @@
         <tr class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch" style="text-align: center;">
             <div class="purchases-legend-swatch-outline">
-              <div class="purchases-legend-swatch" style="border-color: rgba(153, 215, 219, 0.9);">
+              <div class="purchases-legend-swatch" style="border-color: rgb(153, 215, 219);">
               </div>
             </div>
           </td>
@@ -97,7 +113,7 @@
         <tr class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
-              <div class="purchases-legend-swatch" style="border-color: rgba(246, 135, 89, 0.9);">
+              <div class="purchases-legend-swatch" style="border-color: rgb(246, 135, 89);">
               </div>
             </div>
           </td>
@@ -108,7 +124,7 @@
         <tr class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
-              <div class="purchases-legend-swatch" style="border-color: rgba(183, 210, 69, 0.9);">
+              <div class="purchases-legend-swatch" style="border-color: rgb(183, 210, 69);">
               </div>
             </div>
           </td>
@@ -119,18 +135,18 @@
         <tr class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
-              <div class="purchases-legend-swatch" style="border-color: rgba(202, 198, 223, 0.9);">
+              <div class="purchases-legend-swatch" style="border-color: rgb(202, 198, 223);">
               </div>
             </div>
           </td>
           <td class="purchases-legend purchases-legend-label"> 
-            Sweets
+            Snacks
           </td>
         </tr>
         <tr class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
-              <div class="purchases-legend-swatch" style="border-color: rgba(250, 225, 203, 0.9);">
+              <div class="purchases-legend-swatch" style="border-color: rgb(134, 127, 113);">
               </div>
             </div>
           </td>

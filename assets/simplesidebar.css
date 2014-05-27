@@ -72,7 +72,7 @@
 
 .content-header {
   position: relative;
-  left: -100px;
+  left: -130px;
   height: 65px;
   line-height: 65px;
   width: 100%;
@@ -81,7 +81,7 @@
 
 .content-header h1 {
   position: relative;
-  margin: 0px;
+/*  margin: 0px;*/
   margin-left: 280px;
 /*  line-height: 65px;*/
   display: inline-block;

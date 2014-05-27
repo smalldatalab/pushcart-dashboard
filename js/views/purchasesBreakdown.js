@@ -26,21 +26,37 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
   },
   
   colorsMapping: {
-   'Snacks'             : 'rgba(202, 198, 223, 0.9)',
-   'Bakery'             : 'rgba(250, 226, 94, 0.9)',
-   'Breakfast'          : 'rgba(250, 226, 94, 0.9)',
-   'Pasta'              : 'rgba(250, 226, 94, 0.9)',
-   'Diary'              : 'rgba(153, 215, 219, 0.9)',
-   'Diary & Eggs'       : 'rgba(153, 215, 219, 0.9)',
-   'Deli'               : 'rgba(246, 135, 89, 0.9)',
-   'Meat'               : 'rgba(246, 135, 89, 0.9)',
-   'Fruit'              : 'rgba(183, 210, 69, 0.9)',
-   'Produce'            : 'rgba(183, 210, 69, 0.9)',
-   'Vegetable & Herbs'  : 'rgba(183, 210, 69, 0.9)',
-   'Grocery'            : 'rgba(250, 225, 203, 0.9)',
-   'Seasonal'           : 'rgba(250, 225, 203, 0.9)',
-   'Bulk'               : 'rgba(250, 225, 203, 0.9)',
-   'Household'          : 'rgba(250, 225, 203, 0.9)'
+  'Snacks'             : 'rgb(202, 198, 223)',
+  'Bakery'             : 'rgb(250, 226, 94)',
+  'Breakfast'          : 'rgb(250, 226, 94)',
+  'Pasta'              : 'rgb(250, 226, 94)',
+  'Diary'              : 'rgb(153, 215, 219)',
+  'Diary & Eggs'       : 'rgb(153, 215, 219)',
+  'Deli'               : 'rgb(246, 135, 89)',
+  'Meat'               : 'rgb(246, 135, 89)',
+  'Fruit'              : 'rgb(183, 210, 69)',
+  'Produce'            : 'rgb(183, 210, 69)',
+  'Vegetable & Herbs'  : 'rgb(183, 210, 69)',
+  'Grocery'            : 'rgb(134, 127, 113)',
+  'Seasonal'           : 'rgb(134, 127, 113)',
+  'Bulk'               : 'rgb(134, 127, 113)',
+  'Household'          : 'rgb(134, 127, 113)'
+
+  // 'Snacks'             : 'rgb(155, 133, 190)',
+  // 'Bakery'             : 'rgb(235, 206, 111)',
+  // 'Breakfast'          : 'rgb(235, 206, 111)',
+  // 'Pasta'              : 'rgb(235, 206, 111)',
+  // 'Diary'              : 'rgba(91, 127, 173)',
+  // 'Diary & Eggs'       : 'rgba(91, 127, 173)',
+  // 'Deli'               : 'rgb(241, 98, 110)',
+  // 'Meat'               : 'rgb(241, 98, 110)',
+  // 'Fruit'              : 'rgb(149, 205, 139)',
+  // 'Produce'            : 'rgb(149, 205, 139)',
+  // 'Vegetable & Herbs'  : 'rgb(149, 205, 139)',
+  // 'Grocery'            : 'rgb(134, 127, 113)',
+  // 'Seasonal'           : 'rgb(134, 127, 113)',
+  // 'Bulk'               : 'rgb(134, 127, 113)',
+  // 'Household'          : 'rgb(134, 127, 113)'
   },
        
   render: function() {
@@ -82,7 +98,7 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
     var mapping = this.colorsMapping;
 
     var colorsForLabels =  _.map(categories, function(category) {
-      var defaultColor = 'rgba(250, 225, 203, 0.9)';
+      var defaultColor = 'rgb(134,127, 113)';
       return mapping[category] ? mapping[category] : defaultColor;
     });    
 
