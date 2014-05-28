@@ -62,14 +62,14 @@
   
     <!-- template for user info table -->
     <script id="usersInfoTemplate" type="text/template">
-      <table class='user-info-table'>
-        <td> 
-          <%= user.id %> 
-        </td>
-        <td> 
-          <%= user.household_size %>  
-        </td>
-      </table>
+        <tr>
+          <td> 
+            <%= user.id %> 
+          </td>
+          <td>
+            <%= user.household_size %>  
+          </td>
+        </tr>
     </script> 
     
     <!-- template for users list table -->
@@ -292,6 +292,7 @@
     <script src="js/views/purchasesSectionHeader.js"></script>
     <script src="js/views/userHeader.js"></script> 
     <script src="js/views/user.js"></script> 
+    <script src="js/views/userInfo.js"></script> 
     <script src="js/views/purchasesLegend.js"></script>
     <script src="js/views/purchasesTableHeader.js"></script>
     <script src="js/views/purchase.js"></script>

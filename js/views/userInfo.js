@@ -1,14 +1,13 @@
 Pushcart.Views.UserInfo = Backbone.View.extend({
-  
-  tagName: 'tr', 
-  className: 'user-data',
+   
+  tagName: 'table', 
+  className: 'user-info-table',
+  template:  _.template($('#usersInfoTemplate').html()),
 
-  initialize: function(){
-    this.usersInfoTemplate = $('#usersInfoTemplate').html();
-  },
-
-  render: function(){
-    $(this.el).html(this.usersInfoTemplate);
+  render: function() {
+    console.log(this.model.toJSON());
+    this.$el.html(this.template({ user: this.model.toJSON() }));
+    console.log(this.$el);
     return this;
   }
 });
