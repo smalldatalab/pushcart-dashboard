@@ -39,6 +39,10 @@ function getAccessToken( clientId, clientSecret ) {
       // header for users list table
       var usersTableHeader = new Pushcart.Views.UsersTableHeader();
       $('body').append(usersTableHeader.render().el);
+
+      // user info table categories
+      var userInfoCategories = new Pushcart.Views.UserInfoHeader();
+      $('.user-info-categories').append(userInfoCategories.render().el);
       
       // header for dashboard header
       var dashboardHeader = new Pushcart.Views.DashboardHeader();

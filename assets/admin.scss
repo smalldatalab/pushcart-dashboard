@@ -7,7 +7,7 @@ body{
   color: #7c7c7c;
   width: 65%;
   float: right;
-  margin-right: 150px;
+  margin-right: 100px;
   margin-top: 55px;
   font-size: 25px;
   padding-bottom: 10px;
@@ -17,7 +17,7 @@ body{
 #bar-charts-container {
   width: 50%;
   margin-top: 10px;
-  margin-right: 290px;
+  margin-right: 260px;
   float: right; 
 }
 
@@ -78,4 +78,33 @@ body{
   color: rgb(242, 217, 142);
 /*  background: rgba(255,255,255,0.2);*/
   text-decoration: none;
+}
+
+.user-info-categories{
+  width: 11%;
+  margin-left: 144px;
+  margin-top: 180px;
+  position: absolute;
+  height: 30px;
+  /* background: white; */
+  text-align: right;
+  color: #47464b;
+  font-size: 18px;
+}
+
+.user-info-table{
+  margin-left: 280px;
+  margin-top: 180px;
+  position: absolute;
+  /* background: white; */
+  text-align: left;
+  width: 25px;
+  color: #47464b;
+  font-size: 18px;
+  /* background-color: white; */
+  text-align: center;
+}
+
+.user-info-table td{
+  margin-left: 3px;
 }
