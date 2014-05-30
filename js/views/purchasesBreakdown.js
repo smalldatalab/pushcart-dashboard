@@ -41,22 +41,6 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
   'Seasonal'           : 'rgb(134, 127, 113)',
   'Bulk'               : 'rgb(134, 127, 113)',
   'Household'          : 'rgb(134, 127, 113)'
-
-  // 'Snacks'             : 'rgb(155, 133, 190)',
-  // 'Bakery'             : 'rgb(235, 206, 111)',
-  // 'Breakfast'          : 'rgb(235, 206, 111)',
-  // 'Pasta'              : 'rgb(235, 206, 111)',
-  // 'Diary'              : 'rgba(91, 127, 173)',
-  // 'Diary & Eggs'       : 'rgba(91, 127, 173)',
-  // 'Deli'               : 'rgb(241, 98, 110)',
-  // 'Meat'               : 'rgb(241, 98, 110)',
-  // 'Fruit'              : 'rgb(149, 205, 139)',
-  // 'Produce'            : 'rgb(149, 205, 139)',
-  // 'Vegetable & Herbs'  : 'rgb(149, 205, 139)',
-  // 'Grocery'            : 'rgb(134, 127, 113)',
-  // 'Seasonal'           : 'rgb(134, 127, 113)',
-  // 'Bulk'               : 'rgb(134, 127, 113)',
-  // 'Household'          : 'rgb(134, 127, 113)'
   },
        
   render: function() {

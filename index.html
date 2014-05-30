@@ -26,8 +26,12 @@
     </div>
 
     <!-- user info  -->
+    <table class="user-info-categories">
+    </table>
+    
     <div class="user-info">
     </div>
+
 
     <!-- user-total-purchases bar charts -->
     <div class="bar-charts">
@@ -49,7 +53,7 @@
        <h1>Admin</h1>
        <div class='page-underscore-head'></div>
     </script>
-
+    
     <!-- template for users table header -->
     <script id="usersHeaderTemplate" type="text/template">
       <thead>
@@ -59,17 +63,33 @@
           </th>  
       </thead>
     </script>
-  
+    
+    <!-- template for user info table category header-->
+    <script id="usersInfoHeaderTemplate" type="text/template">
+      <tr>
+        <td>
+          User ID:
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Household Size:
+        </td>
+      </tr>
+    </script>
+   
     <!-- template for user info table -->
     <script id="usersInfoTemplate" type="text/template">
-      <table class='user-info-table'>
-        <td> 
+      <tr>
+        <td>
           <%= user.id %> 
         </td>
-        <td> 
+      </tr>
+      <tr>
+        <td>
           <%= user.household_size %>  
         </td>
-      </table>
+      </tr>
     </script> 
     
     <!-- template for users list table -->
@@ -292,6 +312,8 @@
     <script src="js/views/purchasesSectionHeader.js"></script>
     <script src="js/views/userHeader.js"></script> 
     <script src="js/views/user.js"></script> 
+    <script src="js/views/userInfoHeader.js"></script>  
+    <script src="js/views/userInfo.js"></script> 
     <script src="js/views/purchasesLegend.js"></script>
     <script src="js/views/purchasesTableHeader.js"></script>
     <script src="js/views/purchase.js"></script>

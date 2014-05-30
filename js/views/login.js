@@ -1,12 +1,12 @@
 Pushcart.Views.Login = Backbone.View.extend({
   
   initialize: function() {
-    _.bindAll(this, 'render', 'login_press')
+    _.bindAll(this, 'render', 'loginPress')
     this.login = $('#login-template').html();
   },
   
   events: {
-    'click #login_button':  'login_press'
+    'click #login_button':  'loginPress'
   },
   
   render: function() {
@@ -14,7 +14,7 @@ Pushcart.Views.Login = Backbone.View.extend({
     return this;
   },
   
-  login_press: function(event) {
+  loginPress: function(event) {
     event.preventDefault();
     var $dialog = $('.login-container');
      var username = $dialog.find('input[name="username"]').val();
