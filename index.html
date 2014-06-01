@@ -50,17 +50,16 @@
     
     <!-- template for dashboard header -->
     <script id="adminHeaderTemplate" type="text/template">
-       <h1>Admin</h1>
-       <div class='page-underscore-head'></div>
+      <h1> Pushcart Admin</h1>
+      <div class="page-underscore-head"></div>
     </script>
     
     <!-- template for users table header -->
     <script id="usersHeaderTemplate" type="text/template">
       <thead>
-        <tr>
-          <th>
-            User:              
-          </th>  
+        <th>
+            Users 
+        </th>              
       </thead>
     </script>
     
@@ -68,9 +67,13 @@
     <script id="usersInfoHeaderTemplate" type="text/template">
       <tr>
         <td>
-          User ID:
+          User:
         </td>
       </tr>
+      <tr>
+        <td>
+          Email Name:
+        </td>
       <tr>
         <td>
           Household Size:
@@ -87,6 +90,11 @@
       </tr>
       <tr>
         <td>
+          <%= user.alias %> 
+        </td>
+      </tr>
+      <tr>
+        <td>
           <%= user.household_size %>  
         </td>
       </tr>
@@ -94,9 +102,12 @@
     
     <!-- template for users list table -->
     <script id="usersTemplate" type="text/template">
-      <td> 
-        <a class="userIdClickable" data-userid="<%= user.id %>"> <%= user.id %> </a> 
-      </td>
+      <tr class="userIdClickable" data-userid="<%= user.id %>">
+        <td> 
+          <%= user.id %>
+          <br>
+          <span id="user-alias"><%= user.alias %></span>
+        </td>
     </script> 
 
     <!-- template for purchase section header -->
@@ -108,7 +119,7 @@
     <script id="purchasesLegendTemplate" type="text/template">
     
       <tbody>
-        <tr class="purchases-legend"> 
+        <td class="purchases-legend"> 
           <td class="purchases-legend purchases-legend-swatch"> 
             <div class="purchases-legend-swatch-outline">
               <div class="purchases-legend-swatch" style="border-color: rgb(250, 226, 94);">
@@ -116,10 +127,10 @@
             </div>
           </td>
           <td class="purchases-legend purchases-legend-label"> 
-            Carbohydrate
+            Grains
           </td>
-        </tr>
-        <tr class="purchases-legend">
+        </td>
+        <td class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch" style="text-align: center;">
             <div class="purchases-legend-swatch-outline">
               <div class="purchases-legend-swatch" style="border-color: rgb(153, 215, 219);">
@@ -129,8 +140,8 @@
           <td class="purchases-legend purchases-legend-label">
             Diary
           </td>
-        </tr>
-        <tr class="purchases-legend">
+        </td>
+        <td class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
               <div class="purchases-legend-swatch" style="border-color: rgb(246, 135, 89);">
@@ -140,8 +151,8 @@
           <td class="purchases-legend purchases-legend-label"> 
             Meat
           </td>
-        </tr>
-        <tr class="purchases-legend">
+        </td>
+        <td class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
               <div class="purchases-legend-swatch" style="border-color: rgb(183, 210, 69);">
@@ -151,8 +162,8 @@
           <td class="purchases-legend purchases-legend-label"> 
             Produce 
           </td>
-        </tr>
-        <tr class="purchases-legend">
+        </td>
+        <td class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
               <div class="purchases-legend-swatch" style="border-color: rgb(202, 198, 223);">
@@ -162,8 +173,8 @@
           <td class="purchases-legend purchases-legend-label"> 
             Snacks
           </td>
-        </tr>
-        <tr class="purchases-legend">
+        </td>
+        <td class="purchases-legend">
           <td class="purchases-legend purchases-legend-swatch">
             <div class="purchases-legend-swatch-outline">
               <div class="purchases-legend-swatch" style="border-color: rgb(134, 127, 113);">
@@ -173,7 +184,7 @@
           <td class="purchases-legend purchases-legend-label"> 
             Miscellaneous
           </td>
-        </tr>
+        </td>
       </tbody>
 
     </script>

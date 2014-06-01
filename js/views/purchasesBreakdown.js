@@ -124,7 +124,7 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
     },
 
     legend: {
-      show: false,
+      show: true,
       location: 'e',
       placement: 'outside'
     }      

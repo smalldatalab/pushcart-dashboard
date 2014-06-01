@@ -1,4 +1,4 @@
-Pushcart.Views.UserInfo = Backbone.View.extend({
+  Pushcart.Views.UserInfo = Backbone.View.extend({
    
   tagName: 'table', 
   className: 'user-info-table',

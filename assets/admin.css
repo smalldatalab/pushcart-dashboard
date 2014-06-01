@@ -1,12 +1,14 @@
 body {
   background-color: whitesmoke; }
 
+/********* purchases *********/
+/****************************/
 .bar-charts p {
   border-bottom: 3px solid rgba(71, 70, 75, 0.6);
   color: #7c7c7c;
   width: 65%;
   float: right;
-  margin-right: 100px;
+  margin-right: 185px;
   margin-top: 55px;
   font-size: 25px;
   padding-bottom: 10px;
@@ -14,10 +16,12 @@ body {
 
 #bar-charts-container {
   width: 50%;
-  margin-top: 10px;
-  margin-right: 260px;
+  margin-top: 50px;
+  margin-right: 350px;
   float: right; }
 
+/** admin dashboard heading **/
+/****************************/
 #admin-panel {
   position: relative;
   top: 60px;
@@ -27,8 +31,10 @@ body {
   color: white;
   background: #8b8b8e; }
 
+/***** user side table ******/
+/****************************/
 .userIdClickable {
-  cursor: pointer;
+  /* cursor: pointer;*/
   /*  color: rgba(197, 62, 62, 0.9);
     font-size: 11px;*/ }
 
@@ -37,59 +43,76 @@ body {
     width: 90px;*/ }
 
 .user-table {
-  width: 80px;
-  background: #47464b;
-  position: fixed;
-  height: 100%;
+  width: 180px;
   overflow-y: scroll;
-  color: white;
-  top: 0px; }
+  margin-top: 15px;
+  /*  border-radius: 5px;*/
+  margin-left: 5px;
+  height: 100%;
+  position: absolute;
+  background: rgba(71, 70, 75, 0.8); }
 
 .user-table th {
-  font-size: 16px;
-  background: #47464b;
-  color: white;
-  padding-top: 25px; }
+  font-size: 25px;
+  background: none repeat scroll 0% 0% #F5F5F5;
+  color: #808080;
+  padding-bottom: 8px;
+  cursor: default;
+  text-align: right; }
 
 .user-table td, .user-table tr, .user-table a {
   font: 13px/13px Arial, Sans-serif;
   color: white;
   line-height: 25px;
   text-indent: 20px;
-  text-align: center;
-  width: 90px; }
+  /*  text-align: center;*/
+  width: 180px; }
 
 .user-table td {
   border-bottom: 1px solid gray;
-  width: 80px; }
+  width: 180px; }
+
+.user-table #user-alias {
+  font-size: 10px;
+  padding-left: 3px; }
+
+.user-table tr:hover {
+  background: rgba(255, 255, 255, 0.2);
+  width: 180px;
+  cursor: pointer;
+  color: #f2d98e;
+  text-decoration: none; }
 
 .user-table a:hover {
   color: #f2d98e;
-  /*  background: rgba(255,255,255,0.2);*/
   text-decoration: none; }
 
+/***** User Data ******/
+/*********************/
 .user-info-categories {
-  width: 11%;
-  margin-left: 144px;
-  margin-top: 180px;
+  /*  width: 11%;
+    margin-left: 144px;
+    margin-top: 180px;
+    position: absolute;
+    height: 30px;
+    text-align: right;
+    color: #47464b;
+    font-size: 18px;*/
   position: absolute;
   height: 30px;
-  /* background: white; */
   text-align: right;
-  color: #47464b;
-  font-size: 18px; }
+  color: #47464B;
+  font-size: 15px;
+  margin-left: 900px;
+  margin-top: 15px; }
 
 .user-info-table {
-  margin-left: 280px;
-  margin-top: 180px;
+  margin-left: 1020px;
+  color: #47464B;
   position: absolute;
-  /* background: white; */
-  text-align: left;
-  width: 25px;
-  color: #47464b;
-  font-size: 18px;
-  /* background-color: white; */
-  text-align: center; }
+  width: 250px;
+  font-size: 15px;
+  margin-top: 15px; }
 
 .user-info-table td {
   margin-left: 3px; }
