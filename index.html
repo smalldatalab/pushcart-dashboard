@@ -302,7 +302,6 @@
     <script src="js/lib/chart.js"></script>
     <script src="js/lib/moment.js"></script>
     <script src="js/lib/backbone.localStorage.js"></script>
-    <script src="js/auth.js"></script>
 
     <!-- require modules -->
     <script src="js/config.js"></script>
@@ -334,8 +333,15 @@
     <script src="js/views/nutritionCharts.js"></script>
     <script src="js/views/purchasesBreakdown.js"></script>
 
+    <!-- routers -->
+    <script src="js/routers/appRouter.js"></script>    
+
     <!-- application logic -->
-    <script src="js/index.js"></script> 
+    <script>
+      // start the router
+      Pushcart.app = new Pushcart.Routers.AppRouter;
+      Backbone.history.start({pushState: false, root: ""});
+    </script> 
         
   </body>
   </html>
