@@ -79,6 +79,11 @@
           Household Size:
         </td>
       </tr>
+      <tr>
+        <td>
+          Purchase Count:
+        </td>
+      </tr>
     </script>
    
     <!-- template for user info table -->
@@ -98,15 +103,18 @@
           <%= user.household_size %>  
         </td>
       </tr>
+      <tr>
+        <td>
+          <%= user.purchase_count %>  
+        </td>
+      </tr>
     </script> 
     
     <!-- template for users list table -->
     <script id="usersTemplate" type="text/template">
       <tr class="userIdClickable" data-userid="<%= user.id %>">
         <td> 
-          <%= user.id %>
-          <br>
-          <span id="user-alias"><%= user.alias %></span>
+         <%= user.id %> &nbsp;| <%= user.alias %>
         </td>
     </script> 
 
