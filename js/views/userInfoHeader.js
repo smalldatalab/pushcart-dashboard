@@ -1,4 +1,4 @@
-Pushcart.Views.UserInfoHeader = Backbone.View.extend({
+Pushcart.Views.UsersInfoHeader = Backbone.View.extend({
   
   el:'.user-info-categories',
   

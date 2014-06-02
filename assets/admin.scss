@@ -2,13 +2,16 @@ body{
   background-color: rgb(245, 245, 245);
 }
 
+/********* purchases *********/
+/****************************/
+
 .bar-charts p {
   border-bottom: 3px solid rgba(71, 70, 75, 0.6);
   color: #7c7c7c;
   width: 65%;
   float: right;
-  margin-right: 100px;
-  margin-top: 55px;
+  margin-right: 83px;
+  margin-top: 154px;
   font-size: 25px;
   padding-bottom: 10px;
   font-weight: bold;
@@ -16,10 +19,14 @@ body{
 
 #bar-charts-container {
   width: 50%;
-  margin-top: 10px;
-  margin-right: 260px;
+  margin-top: 46px;
+  margin-right: 225px;
   float: right; 
 }
+
+
+/** admin dashboard heading **/
+/****************************/
 
 #admin-panel {
   position: relative;
@@ -32,8 +39,11 @@ body{
   background: #8b8b8e; 
 }
 
+/***** user side table ******/
+/****************************/
+
 .userIdClickable{
-  cursor: pointer;
+ /* cursor: pointer;*/
 /*  color: rgba(197, 62, 62, 0.9);
   font-size: 11px;*/
 }
@@ -44,65 +54,79 @@ body{
 }
 
 .user-table{
-  width: 80px;
-  background:rgb(71,70,75);
-  position: fixed;
-  height: 100%;
-  overflow-y: scroll;
-  color: white;
-  top: 0px;
+  margin-top: 122px;
+  position: relative;
+  width: 260px;
+  position: absolute;
+  margin-left: 9px;
 }
 
 .user-table th {
-  font-size: 16px;
-  background:rgb(71,70,75);
-  color: white;
-  padding-top: 25px;
+  font-size: 22px;
+  background: none repeat scroll 0% 0% #F5F5F5;
+  color: #808080;
+  padding-bottom: 8px;
+  cursor: default;
+  text-align: left;
 }
 
 .user-table td, .user-table tr, .user-table a{
-  font: 13px/13px Arial, Sans-serif;
-  color: white;
-  line-height: 25px;
-  text-indent: 20px;
-  text-align: center;
-  width: 90px;
+  color: rgb(150, 150, 150);
+/*  width: 300px;*/
+  text-indent: 5px;
+  font-size: 14px;
+  line-height: 35px;
 }
 
 .user-table td{
   border-bottom: 1px solid gray;
-  width: 80px;
+  width: 260px;
+/*  width: 300px;*/
 }
 
-.user-table a:hover {
-  color: rgb(242, 217, 142);
+.user-table #user-alias{
+  font-size: 10px;
+  padding-left: 3px;
+}
+
+.user-table tr:hover{
 /*  background: rgba(255,255,255,0.2);*/
+  background: rgba(242, 217, 142, 0.2);
+  width: 300px;
+  cursor: pointer;
+  color: rgb(242, 217, 142);
   text-decoration: none;
 }
 
+.user-table a:hover{
+  color: rgb(242, 217, 142);
+  text-decoration: none;
+}
+
+.active{
+  color: rgb(242, 217, 142);
+}
+
+/***** User Data ******/
+/*********************/
+
 .user-info-categories{
-  width: 11%;
-  margin-left: 144px;
-  margin-top: 180px;
   position: absolute;
   height: 30px;
-  /* background: white; */
   text-align: right;
-  color: #47464b;
-  font-size: 18px;
+  color: #47464B;
+  font-size: 15px;
+  margin-left: 900px;
+  margin-top: 65px;
 }
 
 .user-info-table{
-  margin-left: 280px;
-  margin-top: 180px;
+  margin-left: 1020px;
+  color: #47464B;
   position: absolute;
-  /* background: white; */
-  text-align: left;
-  width: 25px;
-  color: #47464b;
-  font-size: 18px;
-  /* background-color: white; */
-  text-align: center;
+  width: 240px;
+  font-size: 15px;
+  margin-top: 64px;
 }
 
 .user-info-table td{

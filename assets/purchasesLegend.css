@@ -1,10 +1,10 @@
 table.purchases-legend {
-    background-color: rgba(255,255,255,0.6);
-    border: 1px solid #cccccc;
+/*    background-color: rgba(255,255,255,0.6);*/
+ /*   border: 1px solid #cccccc;*/
     position: absolute;
     font-size: 13px;
-    margin-top: 185px;
-    margin-left: 82%;
+    margin-top: 216px;
+    margin-left: 53%;
     cursor: default;
 }
 
