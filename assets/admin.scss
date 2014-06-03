@@ -19,7 +19,8 @@ body{
 
 #bar-charts-container {
   width: 50%;
-  margin-top: 46px;
+/*  margin-top: 46px;*/
+  margin-top: 116px;
   margin-right: 225px;
   float: right; 
 }
@@ -103,8 +104,8 @@ body{
   text-decoration: none;
 }
 
-.active{
-  color: rgb(242, 217, 142);
+.highlight-active{
+  background: rgba(242, 217, 142, 0.7);
 }
 
 /***** User Data ******/
