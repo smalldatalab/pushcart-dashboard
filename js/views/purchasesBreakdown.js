@@ -26,21 +26,39 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
   },
   
   colorsMapping: {
-  'Snacks'             : 'rgb(202, 198, 223)',
-  'Bakery'             : 'rgb(250, 226, 94)',
-  'Breakfast'          : 'rgb(250, 226, 94)',
-  'Pasta'              : 'rgb(250, 226, 94)',
-  'Diary'              : 'rgb(153, 215, 219)',
-  'Diary & Eggs'       : 'rgb(153, 215, 219)',
-  'Deli'               : 'rgb(246, 135, 89)',
-  'Meat'               : 'rgb(246, 135, 89)',
-  'Fruit'              : 'rgb(183, 210, 69)',
-  'Produce'            : 'rgb(183, 210, 69)',
-  'Vegetable & Herbs'  : 'rgb(183, 210, 69)',
-  'Grocery'            : 'rgb(134, 127, 113)',
-  'Seasonal'           : 'rgb(134, 127, 113)',
-  'Bulk'               : 'rgb(134, 127, 113)',
-  'Household'          : 'rgb(134, 127, 113)'
+    'Seasonal'           : 'rgb(134, 127, 113)',
+    'Bulk'               : 'rgb(134, 127, 113)',
+    'Canned Goods'       : 'rgb(134, 127, 113)',
+    'Grocery'            : 'rgb(134, 127, 113)',
+    'Pantry'             : 'rgb(134, 127, 113)',
+    'International'      : 'rgb(134, 127, 113)',
+    'Frozen'             : 'rgb(134, 127, 113)',
+    'Alcohol'            : 'rgb(134, 127, 113)',
+    'Wine'               : 'rgb(134, 127, 113)',
+    'Coffee'             : 'rgb(134, 127, 113)',
+    'Beverages'          : 'rgb(134, 127, 113)',
+    'Buy Big'            : 'rgb(134, 127, 113)',    
+
+    'Snacks'             : 'rgb(202, 198, 223)',
+
+    'Fruit'              : 'rgb(183, 210, 69)',
+    'Produce'            : 'rgb(183, 210, 69)',
+    'Vegetable & Herbs'  : 'rgb(183, 210, 69)',
+   
+
+    'Deli'               : 'rgb(246, 135, 89)',
+    'Meat'               : 'rgb(246, 135, 89)',
+    'Meat & Seafood'     : 'rgb(246, 135, 89)',
+    'Seafood'            : 'rgb(246, 135, 89)',
+
+    'Diary'              : 'rgb(153, 215, 219)',
+    'Diary & Eggs'       : 'rgb(153, 215, 219)',
+    'Cheese'             : 'rgb(153, 215, 219)',
+
+    'Bakery'             : 'rgb(250, 226, 94)',
+    'Breakfast'          : 'rgb(250, 226, 94)',
+    'Pasta'              : 'rgb(250, 226, 94)',
+    'Dry Goods & Pasta'  : 'rgb(250, 226, 94)'
   },
        
   render: function() {
@@ -82,7 +100,7 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
     var mapping = this.colorsMapping;
 
     var colorsForLabels =  _.map(categories, function(category) {
-      var defaultColor = 'rgb(134,127, 113)';
+      var defaultColor = 'white';
       return mapping[category] ? mapping[category] : defaultColor;
     });    
 

@@ -17,6 +17,13 @@ Pushcart.Views.User = Backbone.View.extend({
     var userId = $(e.currentTarget).data('userid');
     var purchasesCollection = new Pushcart.Collections.Purchases({ userId: userId });
     var $collapser = $('.collapse-custom');
+
+    // highlight selected row
+    $('.userIdClickable').on('click', function(event){
+      $('.userIdClickable').removeClass('highlight-active');
+      $(this).addClass('highlight-active');
+    });
+    
     // render user-info table
     this.model = new Pushcart.Models.User({ id: userId });
     this.model.fetch().done(function(response) {
@@ -36,8 +43,6 @@ Pushcart.Views.User = Backbone.View.extend({
       // render bar chart of purchases overview
       self.reRenderPurchaseBreakdown(purchasesCollection);
     });
-    // $(this.userIDClickable).toggleclass('active');
-    self.highlightSelectedUser;
   },
   
   reRenderPurchaseBreakdown: function(purchasesCollection) {
@@ -50,9 +55,5 @@ Pushcart.Views.User = Backbone.View.extend({
     var $user = $('.user-info')
     $user.find('.user-info-table').remove();
   },
-
-  highlightSelectedUser: function(e){
-    $(this).toggleClass("active");
-  }
 
 });

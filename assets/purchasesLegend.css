@@ -4,7 +4,8 @@ table.purchases-legend {
     position: absolute;
     font-size: 13px;
     margin-top: 216px;
-    margin-left: 53%;
+    /*margin-left: 53%;*/
+    margin-left: 43%;
     cursor: default;
 }
 
