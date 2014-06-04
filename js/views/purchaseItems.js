@@ -12,6 +12,16 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     var data = {}; 
     this.$el.html(this.template(data));
     this.renderItems();
+
+    // get the category counts
+    var categoryCounts = this.getCategoriesFromItems(this.collection);
+
+    //console.log(categoryCounts);
+
+    // render the item counts
+    var itemCount = new Pushcart.Views.ItemCount;
+    var returnval = itemCount.render(categoryCounts);
+
     return this;
   },
 
@@ -47,5 +57,29 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
       tbody.append(row);
    }, this);   
   },
+
+  getCategoriesFromItems: function(itemsCollection){
+    var categories = {};
+    var purchaseHash;
+
+    // iterate over the items
+    itemsCollection.each(function(item){  
+      if (categories[item.get("category")] == null) {
+        categories[item.get("category")] = 1;
+      } else {
+        categories[item.get("category")]++;
+      }
+    });
+      
+    // categories['itemCount'] = function(){
+    //   var count = 0;
+    //   _.each(this.categories, function(number, category){
+    //     count += number;
+    //   });
+    //   return count;
+    // };
+
+    return categories;
+  }
 
 })

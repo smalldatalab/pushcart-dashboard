@@ -259,13 +259,23 @@
     <!-- template for purchase dropdown content pt 2 -->
     <script id="purchaseItemRowTemplate" type="text/html">
       <tr>
+        <td class="item-des"> <%= total_price %> </td>
         <td class="item-des"> <%= category %> </td>
         <td class="item-des"> <%= description %> </td>
-        <td class="item-des"> <%= total_price %> </td>
         <td class="item-charts"></td>
       </tr>
     </script>
-     
+
+    <!-- template for purchase dropdown content pt 2 -->
+    <script id="purchaseItemCount" type="text/html">
+      <td> 
+      purchases.categories %> 
+      </td>
+      <td>
+      <%= purchases[0].itemCount() %>
+      </td>
+    </script>    
+    
     <!-- template for login -->
     <script type="text/template" id="login-template">
       <div class ="login-container">
@@ -278,7 +288,7 @@
             <br>
             Password:
             <li> 
-              <input type="password" name="password">
+              <input type="text" name="password">
             </li>
             <br>
             <li> 
@@ -340,6 +350,7 @@
     <script src="js/views/purchaseItemDetail.js"></script>
     <script src="js/views/nutritionCharts.js"></script>
     <script src="js/views/purchasesBreakdown.js"></script>
+    <script src="js/views/itemCount.js"></script>
 
     <!-- application logic -->
     <script src="js/index.js"></script> 
