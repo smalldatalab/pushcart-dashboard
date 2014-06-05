@@ -21,6 +21,7 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     // render the item counts
     var itemCount = new Pushcart.Views.ItemCount;
     var returnval = itemCount.render(categoryCounts);
+    // this.$el.append(itemCount.render(categoryCounts).el);
 
     return this;
   },
@@ -46,7 +47,7 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
       }, item.attributes);
       
       var row = $(this.rowTemplate(data));
-      // size = adjust canvas size for charts
+   
       var chartView = new Pushcart.Views.NutritionCharts({
         el: row.find('td.item-charts'),
         model: item,
@@ -55,8 +56,9 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
       chartView.render();
       this.chartsView.push(chartView);
       tbody.append(row);
-   }, this);   
+   }, this);  
   },
+
 
   getCategoriesFromItems: function(itemsCollection){
     var categories = {};

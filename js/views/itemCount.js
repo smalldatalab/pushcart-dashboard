@@ -4,8 +4,8 @@ Pushcart.Views.ItemCount = Backbone.View.extend({
 
   render: function(purchases){
     console.log("rendering ItemCount!");
-    // console.log(purchases);
-    //ps = purchases;
+    console.log(purchases);
+    ps = purchases;
     var html = this.template({purchases: purchases});
     console.log(html);
     // this.$el.append(html);

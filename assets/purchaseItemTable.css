@@ -68,8 +68,11 @@
     cursor: default; }
   .collapse-custom .item-des {
     cursor: default;
-    color: rgba(197, 62, 62, 0.9);
     /* margin-left: 20px;*/ }
+  .collapse-custom .item-dv {
+    color: indianred;
+    text-align: center;
+    font-weight: bold; }
   .collapse-custom .item-charts {
     cursor: default; }
 
