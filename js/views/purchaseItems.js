@@ -19,8 +19,8 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     //console.log(categoryCounts);
 
     // render the item counts
-    var itemCount = new Pushcart.Views.ItemCount;
-    var returnval = itemCount.render(categoryCounts);
+    // var itemCount = new Pushcart.Views.ItemCount;
+    // var returnval = itemCount.render(categoryCounts);
     // this.$el.append(itemCount.render(categoryCounts).el);
 
     return this;

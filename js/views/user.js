@@ -13,8 +13,6 @@ Pushcart.Views.User = Backbone.View.extend({
   },
   
   reRenderPurchases: function(e){
-    console.log("re-render purchases clicked!");
-
     var self = this;
     var userId = $(e.currentTarget).data('userid');
     var purchasesCollection = new Pushcart.Collections.Purchases({ userId: userId });
