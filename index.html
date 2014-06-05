@@ -241,7 +241,10 @@
                 <th> Category </th>
                 <th> Description </th>
                 <th> Price </th>
-                <th> &nbsp; Vit A &nbsp; &nbsp; &nbsp; Vit C &nbsp; &nbsp; &nbsp; Iron &nbsp; &nbsp; Calcium </th>
+                <th> Vit A </th>
+                <th> Vit C </th>
+                <th> Iron </th>
+                <th> Calcium </th>
               </tr>
             </thead>
             <tbody>        
@@ -250,22 +253,29 @@
       </div>
     </script>
 
-    <!-- template for purchase dropdown content pt 1 -->
-    <script id="purchaseItemDetailsTemplate" type="text/html">
-      <div class="charts">
-      </div>
-    </script>
-
     <!-- template for purchase dropdown content pt 2 -->
     <script id="purchaseItemRowTemplate" type="text/html">
       <tr>
         <td class="item-des"> <%= category %> </td>
+        <td class="item-des"> <%= total_price %> </td> 
         <td class="item-des"> <%= description %> </td>
-        <td class="item-des"> <%= total_price %> </td>
-        <td class="item-charts"></td>
+        <td class="item-dv"> <%= nutritional_data.vitamin_a_dv %> % </td> 
+        <td class="item-dv"> <%= nutritional_data.vitamin_c_dv %> % </td> 
+        <td class="item-dv"> <%= nutritional_data.iron_dv %> % </td>
+        <td class="item-dv"> <%= nutritional_data.calcium_dv %> % </td> 
       </tr>
     </script>
-     
+
+    <!-- template for purchase dropdown content pt 3 -->
+    <script id="purchaseItemCount" type="text/html">
+      <td> 
+      <%= purchases.categories %> 
+      </td>
+      <td>
+      <%= purchases[0].itemCount() %>
+      </td>
+    </script>    
+    
     <!-- template for login -->
     <script type="text/template" id="login-template">
       <div class ="login-container">
@@ -340,6 +350,7 @@
     <script src="js/views/purchaseItemDetail.js"></script>
     <script src="js/views/nutritioncharts.js"></script>
     <script src="js/views/purchasesBreakdown.js"></script>
+    <script src="js/views/itemCount.js"></script>
 
     <!-- application logic -->
     <script src="js/index.js"></script> 
