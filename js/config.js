@@ -1,4 +1,4 @@
-window.Pushcart = {
+ window.Pushcart = {
       Models: {},
       Collections: {},
       Views: {},
