@@ -268,10 +268,18 @@
 
     <!-- template for purchase dropdown content pt 3 -->
     <script id="purchaseItemCount" type="text/html">
-       <div id="hidden-content">
-        <h5> items purchased per category: </h5>
+      <div id="hidden-content">
+        <h5> items purchased per category </h5>
       </div>
-      <pre><%= JSON.stringify(ps, null, 2) %></pre>
+      <% itemCountHash = JSON.stringify(ps, null, 2) %>
+      <% itemCountJSON = JSON.parse(itemCountHash) %>
+      <table class="item-count-table">
+      <tr>
+      <% for(var key in itemCountJSON){  if(itemCountJSON.hasOwnProperty(key)){ %>
+      <td class="item-count"> <span class="item-count-key"> <%= key %> </span> <%= ": " + itemCountJSON[key] + " &nbsp " %> 
+        <% } } %> </td>
+      </tr>
+      </table>
     </script>    
     
     <!-- template for login -->
