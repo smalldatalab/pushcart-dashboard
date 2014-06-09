@@ -257,8 +257,8 @@
     <script id="purchaseItemRowTemplate" type="text/html">
       <tr>
         <td class="item-des"> <%= category %> </td>
-        <td class="item-des"> <%= total_price %> </td> 
         <td class="item-des"> <%= description %> </td>
+        <td class="item-des"> <%= total_price %> </td> 
         <td class="item-dv"> <%= nutritional_data.vitamin_a_dv %> % </td> 
         <td class="item-dv"> <%= nutritional_data.vitamin_c_dv %> % </td> 
         <td class="item-dv"> <%= nutritional_data.iron_dv %> % </td>
@@ -268,12 +268,10 @@
 
     <!-- template for purchase dropdown content pt 3 -->
     <script id="purchaseItemCount" type="text/html">
-      <td> 
-      <%= purchases.categories %> 
-      </td>
-      <td>
-      <%= purchases[0].itemCount() %>
-      </td>
+       <div id="hidden-content">
+        <h5> items purchased per category: </h5>
+      </div>
+      <pre><%= JSON.stringify(ps, null, 2) %></pre>
     </script>    
     
     <!-- template for login -->
@@ -347,7 +345,6 @@
     <script src="js/views/purchasesTableHeader.js"></script>
     <script src="js/views/purchase.js"></script>
     <script src="js/views/purchaseItems.js"></script> 
-    <script src="js/views/purchaseItemDetail.js"></script>
     <script src="js/views/nutritionCharts.js"></script>  
     <script src="js/views/purchasesBreakdown.js"></script>
     <script src="js/views/itemCount.js"></script>

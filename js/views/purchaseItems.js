@@ -16,13 +16,13 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     // get the category counts
     var categoryCounts = this.getCategoriesFromItems(this.collection);
 
-    //console.log(categoryCounts);
+    console.log(categoryCounts);
 
     // render the item counts
     var itemCount = new Pushcart.Views.ItemCount;
-    var returnval = itemCount.render(categoryCounts);
+    var itemCountView = itemCount.render(categoryCounts);
     // this.$el.append(itemCount.render(categoryCounts).el);
-
+    this.$el.before(itemCountView.$el);
     return this;
   },
 
@@ -82,6 +82,7 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     // };
 
     return categories;
+    console.log(categories);
   }
 
 })
