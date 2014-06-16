@@ -30,7 +30,8 @@ Pushcart.Views.Purchase = Backbone.View.extend({
         collection: purchaseItemsColl
       }).render();  
     });
+
     return this;
-  }
+  },
   
 });

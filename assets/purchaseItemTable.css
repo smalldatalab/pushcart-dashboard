@@ -67,8 +67,10 @@
     width: 50%;
     cursor: default; }
   .collapse-custom .item-des {
-    cursor: default;
+    cursor: pointer;
     /* margin-left: 20px;*/ }
+  .collapse-custom .nutritional-value {
+    display: none; }
   .collapse-custom .item-dv {
     color: indianred;
     text-align: center;

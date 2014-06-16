@@ -1,6 +1,5 @@
 Pushcart.Views.ItemCount = Backbone.View.extend({
-  //el: 'div',
-  // class
+
   template: _.template($('#purchaseItemCount').html()),
 
   render: function(purchases){
