@@ -1,7 +1,7 @@
 .collapse-custom {
     margin-top: 30px;
   .navbar-tool {
-    display: none; 
+    display: none;
   }
 
   .navbar {
@@ -34,8 +34,8 @@
     cursor: default;
     font-weight: bold;
     font-size: 16px;
-    li {  
-      padding: 10px 0 10px 0;  
+    li {
+      padding: 10px 0 10px 0;
     }
     li a {
       color: #fff;
@@ -53,20 +53,20 @@
     }
     .two {
       min-width: 340px;
-    } 
+    }
     .three {
       min-width: 200px;
     }
     .four {
       min-width: 110px;
-    } 
+    }
     .five {
-      width: 20px; 
+      width: 20px;
     }
   }
 
   .collapse-open {
-      background-color: #f5f5f5; 
+      background-color: #f5f5f5;
   }
   
   .panel-body {
@@ -94,6 +94,5 @@
         color: rgba(197, 62, 62, 0.9);
         margin-left: 20px;
       
-    } 
+    }
 }
-

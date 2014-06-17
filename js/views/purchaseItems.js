@@ -3,7 +3,7 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
   template: _.template($('#purchaseItemsTemplate').html()),
   rowTemplate: _.template($('#purchaseItemRowTemplate').html()),
   events: {
-   'click .item-des': 'toggleNutritionalInfo'
+   'click .item-des-name': 'toggleNutritionalInfo'
   },
   
   initialize: function(options) {
@@ -88,16 +88,16 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
         nutritionText,
         nutritionalToDisplay = [
           {
-            displayName: 'Calcium Daily Value',
+            displayName: 'Calcium DV',
             key: 'calcium_dv'
           }, {
-            displayName: 'Iron Daily Value',
+            displayName: 'Iron DV',
             key: 'iron_dv'
           }, {
-            displayName: 'Vitamin A Daily Value',
+            displayName: 'Vitamin A DV',
             key: 'vitamin_a_dv'
           }, {
-            displayName: 'Vitamin C Daily Value',
+            displayName: 'Vitamin C DV',
             key: 'vitamin_c_dv'
           }
         ];
