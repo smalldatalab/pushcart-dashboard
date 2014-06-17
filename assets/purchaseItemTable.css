@@ -79,7 +79,18 @@
     display: none;
     list-style-type: none;
     margin-top: 5px;
-    color: grey; }
+    color: #737373;
+    font-family: 'Cabin',sans-serif;
+    font-weight: 500;
+    font-size: 12px; }
+  .collapse-custom .nutritional-info td {
+    border-radius: 5px;
+    background-color: #FFF;
+    border: 1px solid #EBEBEB;
+    float: left;
+    text-align: center;
+    margin: 0px 3px 0px 0px;
+    padding: 2px 3px; }
   .collapse-custom .item-dv {
     color: indianred;
     text-align: center;

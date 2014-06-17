@@ -19,12 +19,9 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     // get the category counts
     var categoryCounts = this.getCategoriesFromItems(this.collection);
 
-    // console.log(categoryCounts);
-
     // render the item counts
     var itemCount = new Pushcart.Views.ItemCount;
     var itemCountView = itemCount.render(categoryCounts);
-    // this.$el.append(itemCount.render(categoryCounts).el);
     this.$el.before(itemCountView.$el);
     this.attachNutritionalInfo();
     return this;
@@ -80,10 +77,9 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     return categories;
     console.log(categories);
   },
+
   attachNutritionalInfo: function($cell, item) {
-    // var itemNutritionalValues = new Pushcart.Views.NutritionalValues({ model: item });
-    // $(this.$('.nutritional-value')).toggleClass();
-    var $ul = $('<ul />').addClass('nutritional-info'),
+    var $ul = $('<table />').addClass('nutritional-info'),
         nutrition,
         nutritionText,
         nutritionalToDisplay = [
@@ -103,12 +99,13 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
         ];
     if (item) {
       _(nutritionalToDisplay).each(function(nutrition) {
-        nutritionText = nutrition.displayName + ': ' + item.toJSON().nutritional_data[nutrition.key];
-        $('<li />').text(nutritionText).appendTo($ul);
+        nutritionText = nutrition.displayName + ':   ' + item.toJSON().nutritional_data[nutrition.key];
+        $('<td />').text(nutritionText).appendTo($ul);
       });
     }
     $ul.appendTo($cell);
   },
+
   toggleNutritionalInfo: function(event) {
     $(event.currentTarget).find('.nutritional-info').slideToggle();
   }
