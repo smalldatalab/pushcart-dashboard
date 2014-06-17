@@ -3,7 +3,7 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
   template: _.template($('#purchaseItemsTemplate').html()),
   rowTemplate: _.template($('#purchaseItemRowTemplate').html()),
   events: {
-   'click .item-des': 'renderNutritionalInfo'
+   'click .item-des': 'toggleNutritionalInfo'
   },
   
   initialize: function(options) {
@@ -85,21 +85,32 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     // $(this.$('.nutritional-value')).toggleClass();
     var $ul = $('<ul />').addClass('nutritional-info'),
         nutrition,
-        nutritionText;
+        nutritionText,
+        nutritionalToDisplay = [
+          {
+            displayName: 'Calcium Daily Value',
+            key: 'calcium_dv'
+          }, {
+            displayName: 'Iron Daily Value',
+            key: 'iron_dv'
+          }, {
+            displayName: 'Vitamin A Daily Value',
+            key: 'vitamin_a_dv'
+          }, {
+            displayName: 'Vitamin C Daily Value',
+            key: 'vitamin_c_dv'
+          }
+        ];
     if (item) {
-      for (nutrition in item.toJSON().nutritional_data) {
-        if (item.toJSON().nutritional_data[nutrition]) {
-          nutritionText = nutrition + ': ' + item.toJSON().nutritional_data[nutrition];
-          $('<li />').text(nutritionText).appendTo($ul);
-        }
-      }
+      _(nutritionalToDisplay).each(function(nutrition) {
+        nutritionText = nutrition.displayName + ': ' + item.toJSON().nutritional_data[nutrition.key];
+        $('<li />').text(nutritionText).appendTo($ul);
+      });
     }
     $ul.appendTo($cell);
   },
-  showNutritionalInfo: function() {
-    console.log("item-des clicked!");
-    // var itemNutritionalValues = new Pushcart.Views.NutritionalValues({ model: item});
-    // $(this.$('.nutritional-value')).toggleClass();
+  toggleNutritionalInfo: function(event) {
+    $(event.currentTarget).find('.nutritional-info').slideToggle();
   }
 
 })
