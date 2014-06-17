@@ -202,9 +202,9 @@
       <nav class="navbar navbar-default navbar-heading" role="navigation">
         <div class="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="one"><a title="select 'view purchases' to see more info">Date</a></li>
-            <li class="two"><a title="select 'view purchases' to see more info">Vendor</a></li>
-            <li class="three"><a title="select 'view purchases' to see more info">Total Price</a></li>
+            <li class="one">Date</a></li>
+            <li class="two">Vendor</a></li>
+            <li class="three">Total Price</a></li>
           </ul>
         </div>
       </nav>
@@ -230,44 +230,9 @@
         </nav>
       </div> 
     </script>
-
-    <!-- template for purchase dropdown header -->
-    <script id="purchaseItemsTemplate" type="text/html">
-      <div id="hidden-content">
-        <h5> items purchased </h5>
-        <table class="table">
-            <thead>
-              <tr>
-                <th> Category </th>
-                <th> Description </th>
-                <th> Price </th>
-                <th> Vit A </th>
-                <th> Vit C </th>
-                <th> Iron </th>
-                <th> Calcium </th>
-              </tr>
-            </thead>
-            <tbody>        
-            </tbody>    
-        </table>
-      </div>
-    </script>
-
-    <!-- template for purchase dropdown content pt 2 -->
-    <script id="purchaseItemRowTemplate" type="text/html">
-      <tr>
-        <td class="item-des"> <%= category %> </td>
-        <td class="item-des"> <%= description %> </td>
-        <td class="item-des"> <%= total_price %> </td> 
-        <td class="item-dv"> <%= nutritional_data.vitamin_a_dv %> % </td> 
-        <td class="item-dv"> <%= nutritional_data.vitamin_c_dv %> % </td> 
-        <td class="item-dv"> <%= nutritional_data.iron_dv %> % </td>
-        <td class="item-dv"> <%= nutritional_data.calcium_dv %> % </td> 
-      </tr>
-    </script>
-
-    <!-- template for purchase dropdown content pt 3 -->
-    <script id="purchaseItemCount" type="text/html">
+  
+    <!-- template for purchase dropdown content -->
+    <script id="purchaseItemCount" type="text/template">
       <div id="hidden-content">
         <h5> items purchased per category </h5>
       </div>
@@ -280,7 +245,46 @@
         <% } } %> </td>
       </tr>
       </table>
-    </script>    
+    </script>   
+
+    <!-- template for purchase dropdown header pt 2 --> 
+    <script id="purchaseItemsTemplate" type="text/template">
+      <div id="hidden-content">
+        <h5> items purchased </h5>
+        <table class="table">
+            <thead>
+              <tr>
+                <th> Name </th>
+                <th> Category </th>
+                <th> Description </th>
+                <th> Price </th>
+              </tr>
+            </thead>
+            <tbody>        
+            </tbody>    
+        </table>
+      </div>
+    </script>
+
+    <!-- template for purchase dropdown content pt 2A -->
+    <script id="purchaseItemRowTemplate" type="text/template">
+      <tr>
+        <td class="item-des"> <%= name %> </td>
+        <td class="item-des"> <%= category %> </td>
+        <td class="item-des"> <%= description %> </td>
+        <td class="item-des"> <%= total_price %> </td> 
+      </tr>
+    </script>
+    
+    <!-- template for purchase dropdown content pt 2B -->
+    <script id="purchaseItemRowNutValuesTemplate" type="text/template">
+      <tr>
+        <td> Vitamin A: <%= nutritional_data.vitamin_a_dv %> % </td>
+        <td> Vitamin C: <%= nutritional_data.vitamin_c_dv %> % </td>
+        <td> Iron: <%= nutritional_data.iron_dv %> % </td>
+        <td> Calcium: <%= nutritional_data.calcium_dv %> % </td> 
+      </tr>
+    </script>
     
     <!-- template for login -->
     <script type="text/template" id="login-template">
@@ -355,7 +359,7 @@
     <script src="js/views/purchaseItems.js"></script> 
     <script src="js/views/nutritioncharts.js"></script>
     <script src="js/views/purchasesBreakdown.js"></script>
-     <script src="js/views/itemCount.js"></script>
+    <script src="js/views/itemCount.js"></script>
 
     <!-- application logic -->
     <script src="js/index.js"></script> 

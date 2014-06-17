@@ -107,9 +107,13 @@
     }
     
     .item-des{
-        cursor: default;
+        cursor: pointer;
        /* margin-left: 20px;*/
       
+    }
+
+    .nutritional-info{
+      display: none;
     }
 
     .item-dv{
