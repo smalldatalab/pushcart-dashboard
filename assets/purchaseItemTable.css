@@ -1,16 +1,18 @@
 .collapse-custom {
-  width: 80%;
+  width: 85%;
   cursor: default;
   position: absolute;
-  /*  margin-top: 574px;*/
   margin-top: 714px;
   margin-left: 171px; }
   .collapse-custom .navbar-tool {
     display: none; }
   .collapse-custom .navbar {
+    width: 75%;
+    position: relative;
+    top: 30px;
+    left: 20%;
     margin-bottom: 0;
     border-radius: 0;
-    cursor: pointer;
     border-bottom: none; }
     .collapse-custom .navbar .btn-xs {
       font-size: inherit; }
@@ -25,66 +27,88 @@
     font-weight: bold;
     font-size: 16px; }
     .collapse-custom .navbar-heading li {
+      color: white;
       padding: 10px 0 10px 0; }
     .collapse-custom .navbar-heading li a {
-      color: #fff; }
+      color: white; }
       .collapse-custom .navbar-heading li a:hover {
         color: #fff; }
   .collapse-custom .navbar-nav .one {
-    left: 50px;
-    min-width: 220px; }
+    left: 70px;
+    width: 340px; }
   .collapse-custom .navbar-nav .two {
-    min-width: 220px; }
+    width: 250px; }
   .collapse-custom .navbar-nav .three {
-    min-width: 120px; }
+    /*      min-width: 120px;*/ }
   .collapse-custom .navbar-nav .four {
-    min-width: 110px; }
+    /*      min-width: 110px;*/ }
   .collapse-custom .navbar-nav .five {
-    width: 20px; }
+    /*      width: 20px;*/ }
   .collapse-custom .collapse-open {
     background-color: #f5f5f5;
     cursor: default; }
   .collapse-custom .panel-body {
     width: 20%;
     cursor: default; }
-  .collapse-custom #hidden-left, .collapse-custom #hidden-right {
-    cursor: default;
-    float: left;
-    width: 50%;
-    padding: 23px;
-    text: justify; }
-    .collapse-custom #hidden-left h5, .collapse-custom #hidden-right h5 {
-      cursor: default;
+  .collapse-custom .item-des-name {
+    color: rgba(197, 62, 62, 0.9);
+    cursor: pointer; }
+  .collapse-custom #hidden-content {
+    width: 95%;
+    padding-left: 45px;
+    padding-top: 10px;
+    cursor: default; }
+    .collapse-custom #hidden-content h5 {
       border-bottom: 2px solid #f2d98e;
       font-family: 'Cabin', sans-serif;
       font-weight: 400;
       font-size: 18px;
       line-height: 18px;
       padding-bottom: 6px;
-      color: #5f6273; }
+      color: #5f6273;
+      cursor: default; }
   .collapse-custom #hidden-right {
     float: right;
     width: 50%;
     cursor: default; }
   .collapse-custom .item-des {
-    cursor: pointer;
-    /* margin-left: 20px;*/ }
+    color: rgba(197, 62, 62, 0.9);
+    width: 100px;
+    cursor: default; }
   .collapse-custom .nutritional-info {
-    display: none; }
+    display: none;
+    list-style-type: none;
+    margin-top: 5px;
+    color: #737373;
+    font-family: 'Cabin',sans-serif;
+    font-weight: 500;
+    font-size: 12px; }
+  .collapse-custom .nutritional-info td {
+    border-radius: 5px;
+    background-color: #FFF;
+    border: 1px solid #EBEBEB;
+    float: left;
+    text-align: center;
+    margin: 0px 3px 0px 0px;
+    padding: 2px 3px; }
   .collapse-custom .item-dv {
     color: indianred;
     text-align: center;
     font-weight: bold; }
   .collapse-custom .item-charts {
     cursor: default; }
+  .collapse-custom .collapse-custom li {
+    display: inline; }
+  .collapse-custom .item-count-table {
+    margin-left: 60px;
+    color: chocolate;
+    font-size: 15px;
+    cursor: default; }
+  .collapse-custom .item-count-key {
+    font-weight: bold; }
 
-.collapse-custom li {
-  display: inline; }
+.navbar-nav {
+  cursor: pointer; }
 
-.item-count-table {
-  margin-left: 60px;
-  color: chocolate;
-  font-size: 15px; }
-
-.item-count-key {
-  font-weight: bold; }
+.navbar-collapse {
+  cursor: default; }

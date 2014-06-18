@@ -6,9 +6,9 @@
     <title> Pushcart Dashboard </title>
     <link rel="stylesheet" href="assets/bootstrap.css">
     <link rel="stylesheet" href="assets/login.css"> 
-    <link rel="stylesheet" href="assets/simplesidebar.css">
     <link rel="stylesheet" href="assets/admin.css"> 
-    <link rel="stylesheet" href="assets/table.css">
+    <link rel="stylesheet" href="assets/simplesidebar.css">
+    <!-- link rel="stylesheet" href="assets/table.css"> -->
     <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
     <link rel="stylesheet" href="assets/jquery.jqplot.css"> 
     <link rel="stylesheet" href="assets/purchasesLegend.css"> 
@@ -254,10 +254,10 @@
         <table class="table">
             <thead>
               <tr>
-                <th> Name </th>
-                <th> Category </th>
-                <th> Description </th>
-                <th> Price </th>
+                <th class="table-col-one"> Name </th>
+                <th class="table-col-two"> Category </th>
+                <th class="table-col-three"> Description </th>
+                <th class="table-col-four"> Price </th>
               </tr>
             </thead>
             <tbody>        
@@ -266,23 +266,13 @@
       </div>
     </script>
 
-    <!-- template for purchase dropdown content pt 2A -->
+    <!-- template for purchase dropdown content pt 2 -->
     <script id="purchaseItemRowTemplate" type="text/template">
       <tr>
-        <td class="item-des"> <%= name %> </td>
+        <td class="item-des-name"> <%= name %> </td>
         <td class="item-des"> <%= category %> </td>
         <td class="item-des"> <%= description %> </td>
         <td class="item-des"> <%= total_price %> </td> 
-      </tr>
-    </script>
-    
-    <!-- template for purchase dropdown content pt 2B -->
-    <script id="purchaseItemRowNutValuesTemplate" type="text/template">
-      <tr>
-        <td> Vitamin A: <%= nutritional_data.vitamin_a_dv %> % </td>
-        <td> Vitamin C: <%= nutritional_data.vitamin_c_dv %> % </td>
-        <td> Iron: <%= nutritional_data.iron_dv %> % </td>
-        <td> Calcium: <%= nutritional_data.calcium_dv %> % </td> 
       </tr>
     </script>
     

@@ -3,7 +3,7 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
   template: _.template($('#purchaseItemsTemplate').html()),
   rowTemplate: _.template($('#purchaseItemRowTemplate').html()),
   events: {
-   'click .item-des': 'toggleNutritionalInfo'
+   'click .item-des-name': 'toggleNutritionalInfo'
   },
   
   initialize: function(options) {
@@ -19,12 +19,9 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     // get the category counts
     var categoryCounts = this.getCategoriesFromItems(this.collection);
 
-    // console.log(categoryCounts);
-
     // render the item counts
     var itemCount = new Pushcart.Views.ItemCount;
     var itemCountView = itemCount.render(categoryCounts);
-    // this.$el.append(itemCount.render(categoryCounts).el);
     this.$el.before(itemCountView.$el);
     this.attachNutritionalInfo();
     return this;
@@ -80,35 +77,35 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     return categories;
     console.log(categories);
   },
+
   attachNutritionalInfo: function($cell, item) {
-    // var itemNutritionalValues = new Pushcart.Views.NutritionalValues({ model: item });
-    // $(this.$('.nutritional-value')).toggleClass();
-    var $ul = $('<ul />').addClass('nutritional-info'),
+    var $ul = $('<table />').addClass('nutritional-info'),
         nutrition,
         nutritionText,
         nutritionalToDisplay = [
           {
-            displayName: 'Calcium Daily Value',
+            displayName: 'Calcium DV',
             key: 'calcium_dv'
           }, {
-            displayName: 'Iron Daily Value',
+            displayName: 'Iron DV',
             key: 'iron_dv'
           }, {
-            displayName: 'Vitamin A Daily Value',
+            displayName: 'Vitamin A DV',
             key: 'vitamin_a_dv'
           }, {
-            displayName: 'Vitamin C Daily Value',
+            displayName: 'Vitamin C DV',
             key: 'vitamin_c_dv'
           }
         ];
     if (item) {
       _(nutritionalToDisplay).each(function(nutrition) {
-        nutritionText = nutrition.displayName + ': ' + item.toJSON().nutritional_data[nutrition.key];
-        $('<li />').text(nutritionText).appendTo($ul);
+        nutritionText = nutrition.displayName + ':   ' + item.toJSON().nutritional_data[nutrition.key];
+        $('<td />').text(nutritionText).appendTo($ul);
       });
     }
     $ul.appendTo($cell);
   },
+
   toggleNutritionalInfo: function(event) {
     $(event.currentTarget).find('.nutritional-info').slideToggle();
   }
