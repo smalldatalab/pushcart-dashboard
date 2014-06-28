@@ -62,10 +62,66 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
   },
 
   attachNutritionalInfo: function($cell, item) {
-    var $ul = $('<table />').addClass('nutritional-info'),
+    var $table = $('<table />').addClass('nutritional-info'),
         nutrition,
         nutritionText,
         nutritionalToDisplay = [
+          {
+            displayName: 'Serving Size',
+            key: 'serving_size_qty'
+          },
+          {
+            displayName: 'Servings Per Container',
+            key: 'servings_per_container'
+          },
+          {
+            displayName: 'Calories',
+            key: 'calories'
+          },
+          {
+            displayName: 'Calories from Fat',
+            key: 'calories_from_fat'
+          },
+          {
+            displayName: 'Cholesterol',
+            key: 'cholesterol'
+          },
+          {
+            displayName: 'Monounsaturated Fat',
+            key: 'monounsaturated_fat'
+          },
+          {
+            displayName: 'Polyunsaturated Fat',
+            key: 'polyunsaturated_fat'
+          },
+          {
+            displayName: 'Saturated Fat',
+            key: 'saturated_fat'
+          },
+          {
+            displayName: 'Total Fat',
+            key: 'total_fat'
+          },
+          {
+            displayName: 'Trans Fatty Acid',
+            key: 'trans_fatty_acid'
+          },
+          {
+            displayName: 'Fiber',
+            key: 'dietary_fiber'
+          },
+          {
+            displayName: 'Protein',
+            key: 'protein'
+          },
+          {
+            displayName: 'Sodium',
+            key: 'sodium'
+          },
+          {
+            displayName: 'Sugar',
+            key: 'sugars'
+          },
           {
             displayName: 'Calcium DV',
             key: 'calcium_dv'
@@ -83,10 +139,10 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     if (item) {
       _(nutritionalToDisplay).each(function(nutrition) {
         nutritionText = nutrition.displayName + ':   ' + item.toJSON().nutritional_data[nutrition.key];
-        $('<td />').text(nutritionText).appendTo($ul);
+        $('<tr />').text(nutritionText).appendTo($table);
       });
     }
-    $ul.appendTo($cell);
+    $table.appendTo($cell);
   },
 
   toggleNutritionalInfo: function(event) {
