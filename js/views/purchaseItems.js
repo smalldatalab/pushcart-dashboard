@@ -8,7 +8,6 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
   
   initialize: function(options) {
     this.options = options;
-    this.chartsView = [];
   },
 
   render: function() {
@@ -31,12 +30,6 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     this.renderItems();
   },
 
-  remove: function() {
-    _.invoke(this.chartsView, 'remove');
-    this.chartsView = [];
-    Backbone.View.prototype.remove.call(this);
-  },
-
   renderItems: function() {
     var tbody = this.$('tbody');
     tbody.empty();
@@ -47,19 +40,10 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
       }, item.attributes);
       
       var row = $(this.rowTemplate(data));
-   
-      var chartView = new Pushcart.Views.NutritionCharts({
-        el: row.find('td.item-charts'),
-        model: item,
-        size: 50
-      });
-      chartView.render();
-      this.chartsView.push(chartView);
       tbody.append(row);
       this.attachNutritionalInfo(row.find('td:first-child'), item);
     }, this);  
   },
-
 
   getCategoriesFromItems: function(itemsCollection){
     var categories = {};
@@ -75,7 +59,6 @@ Pushcart.Views.PurchaseItems = Backbone.View.extend({
     });
       
     return categories;
-    console.log(categories);
   },
 
   attachNutritionalInfo: function($cell, item) {

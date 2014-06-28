@@ -15,7 +15,6 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
       }
     });
     categories = _.keys(categories);
-    // categories.sort();
     return categories;
   },
 
@@ -69,7 +68,6 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
      return purchase.aggregates();
     });
 
-    //var categories = this.collectCategories(aggregates);
     var categories = this.collectAllCategories();
 
     var datasets = _.map(categories, function(category) {
