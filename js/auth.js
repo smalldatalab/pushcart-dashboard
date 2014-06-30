@@ -42,23 +42,23 @@ function getAccessToken( clientId, clientSecret ) {
 
       // user info table categories
       var userInfoCategories = new Pushcart.Views.UsersInfoHeader();
-      $('.user-info-categories').append(userInfoCategories.render().el);
-      
+      userInfoCategories.render();
+
       // header for dashboard header
       var dashboardHeader = new Pushcart.Views.DashboardHeader();
-      $('.content-header').append(dashboardHeader.render().el);
+      dashboardHeader.render(); 
 
       // header for purchases section header
       var purchasesSectionHeader = new Pushcart.Views.PurchasesSectionHeader();
-      $('.bar-charts').append(purchasesSectionHeader.render().el);
+      purchasesSectionHeader.render();
 
       // purchases overview legend
       var purchasesLegend = new Pushcart.Views.PurchasesLegend();
-      $('.purchases-legend').append(purchasesLegend.render().el);
+      purchasesLegend.render();
 
       // header for purchases table 
       var purchasesTableHeader = new Pushcart.Views.PurchasesTableHeader();
-      $('.collapse-custom').append(purchasesTableHeader.render().el);
+      purchasesTableHeader.render();
     }
   });
 }

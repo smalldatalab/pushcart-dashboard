@@ -1,5 +1,5 @@
-Pushcart.Models.Purchase = Backbone.Model.extend({
-  
+Pushcart.Models.Purchase = Backbone.Model.extend({ 
+  // calculates total serving sizes of items bought; used in purchasesBreakdown.js view
   aggregates: function() {
     var result = {};
     var servingsPerContainer;
