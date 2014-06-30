@@ -6,9 +6,9 @@
     <title> Pushcart Dashboard </title>
     <link rel="stylesheet" href="assets/bootstrap.css">
     <link rel="stylesheet" href="assets/login.css"> 
-    <link rel="stylesheet" href="assets/simplesidebar.css">
     <link rel="stylesheet" href="assets/admin.css"> 
-    <link rel="stylesheet" href="assets/table.css">
+    <link rel="stylesheet" href="assets/simplesidebar.css">
+    <!-- link rel="stylesheet" href="assets/table.css"> -->
     <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
     <link rel="stylesheet" href="assets/jquery.jqplot.css"> 
     <link rel="stylesheet" href="assets/purchasesLegend.css"> 
@@ -79,6 +79,11 @@
           Household Size:
         </td>
       </tr>
+      <tr>
+        <td>
+          Purchase Count:
+        </td>
+      </tr>
     </script>
    
     <!-- template for user info table -->
@@ -98,15 +103,18 @@
           <%= user.household_size %>  
         </td>
       </tr>
+      <tr>
+        <td>
+          <%= user.purchase_count %>  
+        </td>
+      </tr>
     </script> 
     
     <!-- template for users list table -->
     <script id="usersTemplate" type="text/template">
       <tr class="userIdClickable" data-userid="<%= user.id %>">
         <td> 
-          <%= user.id %>
-          <br>
-          <span id="user-alias"><%= user.alias %></span>
+         <%= user.id %> &nbsp;| <%= user.alias %>
         </td>
     </script> 
 
@@ -149,7 +157,7 @@
             </div>
           </td>
           <td class="purchases-legend purchases-legend-label"> 
-            Meat
+            Proteins
           </td>
         </td>
         <td class="purchases-legend">
@@ -194,9 +202,9 @@
       <nav class="navbar navbar-default navbar-heading" role="navigation">
         <div class="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="one"><a title="select 'view purchases' to see more info">Date</a></li>
-            <li class="two"><a title="select 'view purchases' to see more info">Vendor</a></li>
-            <li class="three"><a title="select 'view purchases' to see more info">Total Price</a></li>
+            <li class="one">Date</a></li>
+            <li class="two">Vendor</a></li>
+            <li class="three">Total Price</a></li>
           </ul>
         </div>
       </nav>
@@ -222,18 +230,34 @@
         </nav>
       </div> 
     </script>
+  
+    <!-- template for purchase dropdown content -->
+    <script id="purchaseItemCount" type="text/template">
+      <div id="hidden-content">
+        <h5> items purchased per category </h5>
+      </div>
+      <% itemCountHash = JSON.stringify(ps, null, 2) %>
+      <% itemCountJSON = JSON.parse(itemCountHash) %>
+      <table class="item-count-table">
+      <tr>
+      <% for(var key in itemCountJSON){  if(itemCountJSON.hasOwnProperty(key)){ %>
+      <td class="item-count"> <span class="item-count-key"> <%= key %> </span> <%= ": " + itemCountJSON[key] + " &nbsp " %> 
+        <% } } %> </td>
+      </tr>
+      </table>
+    </script>   
 
-    <!-- template for purchase dropdown header -->
-    <script id="purchaseItemsTemplate" type="text/html">
+    <!-- template for purchase dropdown header pt 2 --> 
+    <script id="purchaseItemsTemplate" type="text/template">
       <div id="hidden-content">
         <h5> items purchased </h5>
         <table class="table">
             <thead>
               <tr>
-                <th> Category </th>
-                <th> Description </th>
-                <th> Price </th>
-                <th> &nbsp; Vit A &nbsp; &nbsp; &nbsp; Vit C &nbsp; &nbsp; &nbsp; Iron &nbsp; &nbsp; Calcium </th>
+                <th class="table-col-one"> Name </th>
+                <th class="table-col-two"> Category </th>
+                <th class="table-col-three"> Description </th>
+                <th class="table-col-four"> Price </th>
               </tr>
             </thead>
             <tbody>        
@@ -242,22 +266,16 @@
       </div>
     </script>
 
-    <!-- template for purchase dropdown content pt 1 -->
-    <script id="purchaseItemDetailsTemplate" type="text/html">
-      <div class="charts">
-      </div>
-    </script>
-
     <!-- template for purchase dropdown content pt 2 -->
-    <script id="purchaseItemRowTemplate" type="text/html">
+    <script id="purchaseItemRowTemplate" type="text/template">
       <tr>
+        <td class="item-des-name"> <%= name %> </td>
         <td class="item-des"> <%= category %> </td>
         <td class="item-des"> <%= description %> </td>
-        <td class="item-des"> <%= total_price %> </td>
-        <td class="item-charts"></td>
+        <td class="item-des"> <%= total_price %> </td> 
       </tr>
     </script>
-     
+    
     <!-- template for login -->
     <script type="text/template" id="login-template">
       <div class ="login-container">
@@ -270,8 +288,7 @@
             <br>
             Password:
             <li> 
-              <input type="text" name="password">
-              <!-- TODO RESET TO PASSWORD WHEN FINISHED DEBUGGING -->
+              <input type="password" name="password">
             </li>
             <br>
             <li> 
@@ -318,7 +335,6 @@
     
     <!-- views -->
     <script src="js/views/login.js"></script>
-    <!-- script src="js/views/sidebar.js"></script> -->
     <script src="js/views/dashboardHeader.js"></script>
     <script src="js/views/purchasesSectionHeader.js"></script>
     <script src="js/views/userHeader.js"></script> 
@@ -329,9 +345,8 @@
     <script src="js/views/purchasesTableHeader.js"></script>
     <script src="js/views/purchase.js"></script>
     <script src="js/views/purchaseItems.js"></script> 
-    <script src="js/views/purchaseItemDetail.js"></script>
-    <script src="js/views/nutritionCharts.js"></script>
     <script src="js/views/purchasesBreakdown.js"></script>
+    <script src="js/views/itemCount.js"></script>
 
     <!-- routers -->
     <script src="js/routers/appRouter.js"></script>    

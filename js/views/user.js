@@ -3,9 +3,12 @@ Pushcart.Views.User = Backbone.View.extend({
   tagName: 'tr', 
   template: _.template($('#usersTemplate').html()),
   events: {
-    'click .userIdClickable': 'reRenderPurchases'
+   'click .userIdClickable': function(e) {
+      this.reRenderPurchases(e);
+      this.highlightSelectedUser(e);
+    }
   },
-  
+
   render: function(){ 
     var output = this.template({user: this.model.toJSON()});
     this.$el.append(output);
@@ -13,10 +16,13 @@ Pushcart.Views.User = Backbone.View.extend({
   },
   
   reRenderPurchases: function(e){
+    console.log("re-render purchases clicked!");
+
     var self = this;
     var userId = $(e.currentTarget).data('userid');
     var purchasesCollection = new Pushcart.Collections.Purchases({ userId: userId });
     var $collapser = $('.collapse-custom');
+
     // render user-info table
     this.model = new Pushcart.Models.User({ id: userId });
     this.model.fetch().done(function(response) {
@@ -33,11 +39,10 @@ Pushcart.Views.User = Backbone.View.extend({
         });
         $collapser.append(purchaseView.render().el);
       });
+
       // render bar chart of purchases overview
       self.reRenderPurchaseBreakdown(purchasesCollection);
     });
-    // $(this.userIDClickable).toggleclass('active');
-    self.highlightSelectedUser;
   },
   
   reRenderPurchaseBreakdown: function(purchasesCollection) {
@@ -51,8 +56,9 @@ Pushcart.Views.User = Backbone.View.extend({
     $user.find('.user-info-table').remove();
   },
 
-  highlightSelectedUser: function(e){
-    $(this).toggleClass("active");
+  highlightSelectedUser: function(event){
+    $('.userIdClickable').removeClass('highlight-active');
+      $(this.$('.userIdClickable')).addClass('highlight-active');
   }
 
 });
