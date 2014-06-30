@@ -6,9 +6,8 @@
     <title> Pushcart Dashboard </title>
     <link rel="stylesheet" href="assets/bootstrap.css">
     <link rel="stylesheet" href="assets/login.css"> 
-    <link rel="stylesheet" href="assets/admin.css"> 
-    <link rel="stylesheet" href="assets/simplesidebar.css">
-    <!-- link rel="stylesheet" href="assets/table.css"> -->
+    <link rel="stylesheet" href="assets/dashboardHeader.css">
+    <link rel="stylesheet" href="assets/users.css"> 
     <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
     <link rel="stylesheet" href="assets/jquery.jqplot.css"> 
     <link rel="stylesheet" href="assets/purchasesLegend.css"> 
@@ -52,6 +51,15 @@
     <script id="adminHeaderTemplate" type="text/template">
       <h1> Pushcart Admin</h1>
       <div class="page-underscore-head"></div>
+
+      <ul class="nav navbar-nav navbar-right" id="admin-dropdown">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"> Admin <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a id="logout-link" href=" " data-bypass="">Sign Out</a></li>
+            </ul>
+        </li>
+      </ul>
     </script>
     
     <!-- template for users table header -->
