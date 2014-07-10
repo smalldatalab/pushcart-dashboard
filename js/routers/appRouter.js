@@ -6,10 +6,17 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
   },
 
   loadHome: function() {
-    // create a users collection and a "bar chart" of the purchases breakdown
     Pushcart.users              = new Pushcart.Collections.Users;
     Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-
+    Pushcart.emails = new Pushcart.Collections.Emails;
+        Pushcart.emails.fetch({
+          sucess: function(){
+            console.log("JSON file fetched", Pushcart.emails);
+          },
+          error: function(){
+            console.log("error loading JSON")
+          }
+        })
     if (Pushcart.accessToken == '') {
       var login = new Pushcart.Views.Login();
       $('.main').append(login.render().el);
@@ -20,7 +27,7 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
     // create a users collection and a "bar chart" of the purchases breakdown
     Pushcart.users              = new Pushcart.Collections.Users;
     Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-
+    
     if (Pushcart.accessToken == '') {
       this.navigate("", {trigger: true});
     }
