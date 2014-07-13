@@ -6,28 +6,23 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
   },
 
   loadHome: function() {
-    Pushcart.users              = new Pushcart.Collections.Users;
-    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-    Pushcart.emails = new Pushcart.Collections.Emails;
-        Pushcart.emails.fetch({
-          sucess: function(){
-            console.log("JSON file fetched", Pushcart.emails);
-          },
-          error: function(){
-            console.log("error loading JSON")
-          }
-        })
-    if (Pushcart.accessToken == '') {
+    if (Pushcart.accessToken === '') {
       var login = new Pushcart.Views.Login();
       $('.main').append(login.render().el);
     }
   },
 
   loadAdmin: function() {
-    // create a users collection and a "bar chart" of the purchases breakdown
     Pushcart.users              = new Pushcart.Collections.Users;
     Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
+    Pushcart.emails = new Pushcart.Collections.Emails;
     
+    Pushcart.emails.fetch().complete(function(){
+      console.log("JSON data fetched");
+      emailTimelineView = new Pushcart.Views.EmailTimeline;
+      emailTimelineView.render();
+    })
+
     if (Pushcart.accessToken == '') {
       this.navigate("", {trigger: true});
     }
@@ -70,6 +65,17 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
     // header for purchases table 
     var purchasesTableHeader = new Pushcart.Views.PurchasesTableHeader();
     $('.collapse-custom').append(purchasesTableHeader.render().el);
+
+     // createStoryJS({
+     //      type:   'timeline',
+     //      width:    '600',
+     //      height:   '300',
+     //      source:   'js/lib/email.jsonp',
+     //      embed_id: 'timeline-embed',
+     //      debug:    true,
+     //      css:      'css/timeline.css',   
+     //      js:       'js/lib/timeline-min.js' 
+     //    });  
   }
 
 });

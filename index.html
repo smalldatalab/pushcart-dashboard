@@ -4,13 +4,14 @@
     <meta charset="UTF-8">  
     <meta http-equiv="X-UA-Compatiable" content="IE=edge,chrome=1"> 
     <title> Pushcart Dashboard </title>
-    <link rel="stylesheet" href="assets/bootstrap.css">
-    <link rel="stylesheet" href="assets/login.css"> 
-    <link rel="stylesheet" href="assets/dashboardHeader.css">
-    <link rel="stylesheet" href="assets/users.css"> 
-    <link rel="stylesheet" href="assets/purchaseItemTable.css"> 
-    <link rel="stylesheet" href="assets/jquery.jqplot.css"> 
-    <link rel="stylesheet" href="assets/purchasesLegend.css"> 
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/login.css"> 
+    <link rel="stylesheet" href="css/dashboardHeader.css">
+    <link rel="stylesheet" href="css/users.css"> 
+    <link rel="stylesheet" href="css/purchaseItemTable.css"> 
+    <link rel="stylesheet" href="css/jquery.jqplot.css"> 
+    <link rel="stylesheet" href="css/purchasesLegend.css"> 
+    <link rel="stylesheet" type="text/css" href="http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
   </head>
   <body>
     
@@ -43,6 +44,9 @@
     <div id="bar-charts-container">
     </div>
     
+    <div id="timeline-embed">
+      </div>
+
     <!-- purchase table -->
     <div class="collapse-custom">
     </div>
@@ -324,9 +328,15 @@
     <script src="js/lib/jqplot.barRenderer.min.js"></script>
     <script src="js/lib/jqplot.pointLabels.min.js"></script>
     <script src="js/lib/jqplot.categoryAxisRenderer.min.js"></script>
-    <script src="js/lib/chart.js"></script>
+    <!-- script src="js/lib/jqplot.highlighter.min.js"></script> -->
+    <!-- script src="js/lib/jqplot.cursor.min.js"></script> -->
+    <!-- script src="js/lib/chart.js"></script> -->
     <script src="js/lib/moment.js"></script>
     <script src="js/lib/backbone.localStorage.js"></script>
+    <script src="js/lib/timeline-min.js"></script>
+    <script src="js/lib/storyjs-embed.js"></script>
+    <!-- script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script> -->
+    <!-- script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/timeline.js"></script> -->
 
     <!-- require modules -->
     <script src="js/config.js"></script>
@@ -335,11 +345,13 @@
     <script src="js/models/user.js"></script>
     <script src="js/models/purchase.js"></script>
     <script src="js/models/purchaseItem.js"></script>
+    <script src="js/models/email.js"></script>
     
     <!-- collections -->
     <script src="js/collections/users.js"></script>
     <script src="js/collections/purchases.js"></script> 
     <script src="js/collections/purchaseItems.js"></script>
+    <script src="js/collections/emails.js"></script>
     
     <!-- views -->
     <script src="js/views/login.js"></script>
@@ -355,6 +367,7 @@
     <script src="js/views/purchaseItems.js"></script> 
     <script src="js/views/purchasesBreakdown.js"></script>
     <script src="js/views/itemCount.js"></script>
+    <script src="js/views/emailTimeline.js"></script>
 
     <!-- routers -->
     <script src="js/routers/appRouter.js"></script>    
