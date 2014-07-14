@@ -44,38 +44,28 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
     
     // header for users list table
     var usersTableHeader = new Pushcart.Views.UsersTableHeader();
-    $('body').append(usersTableHeader.render().el);
+    $('.user-table').append(usersTableHeader.render().el);
 
-    // user info table categories
+   // user info table categories
     var userInfoCategories = new Pushcart.Views.UsersInfoHeader();
-    $('.user-info-categories').append(userInfoCategories.render().el);
-    
+    userInfoCategories.render();
+
     // header for dashboard header
     var dashboardHeader = new Pushcart.Views.DashboardHeader();
-    $('.content-header').append(dashboardHeader.render().el);
+    dashboardHeader.render(); 
 
     // header for purchases section header
     var purchasesSectionHeader = new Pushcart.Views.PurchasesSectionHeader();
-    $('.bar-charts').append(purchasesSectionHeader.render().el);
+    purchasesSectionHeader.render();
 
     // purchases overview legend
     var purchasesLegend = new Pushcart.Views.PurchasesLegend();
-    $('.purchases-legend').append(purchasesLegend.render().el);
+    purchasesLegend.render();
 
     // header for purchases table 
     var purchasesTableHeader = new Pushcart.Views.PurchasesTableHeader();
-    $('.collapse-custom').append(purchasesTableHeader.render().el);
+    purchasesTableHeader.render();
 
-     // createStoryJS({
-     //      type:   'timeline',
-     //      width:    '600',
-     //      height:   '300',
-     //      source:   'js/lib/email.jsonp',
-     //      embed_id: 'timeline-embed',
-     //      debug:    true,
-     //      css:      'css/timeline.css',   
-     //      js:       'js/lib/timeline-min.js' 
-     //    });  
   }
 
 });

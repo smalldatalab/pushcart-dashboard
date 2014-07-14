@@ -23,8 +23,8 @@ Pushcart.Views.EmailTimeline = Backbone.View.extend({
 
     createStoryJS({
       type: 'timeline',
-      width: '600',
-      height: '300',
+      width: '800',
+      height: '330',
       source: groceryData,
       embed_id: 'timeline-embed',
       debug: true,

@@ -2,8 +2,8 @@
   width: 85%;
   cursor: default;
   position: absolute;
-  margin-top: 714px;
-  margin-left: 171px; }
+  margin-top: 904px;
+  margin-left: 161px; }
   .collapse-custom .navbar-tool {
     display: none; }
   .collapse-custom .navbar {
@@ -127,12 +127,17 @@
 
 #bar-charts-container {
   width: 50%;
-  /*  margin-top: 46px;*/
-  margin-top: 116px;
-  margin-right: 225px;
+  margin-top: 55px;
+  margin-right: 282px;
   float: right; }
 
 #bar-charts-container .jqplot-point-label {
   border: 1.5px solid #aaaaaa;
   padding: 1px 3px;
   background-color: #eeccdd; }
+
+/********* custom timelinejs ************/
+#timeline-embed {
+  position: absolute;
+  top: 600px;
+  left: 378px; }

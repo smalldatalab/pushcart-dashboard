@@ -140,11 +140,20 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
     },
 
     legend: {
+      renderer: $.jqplot.EnhancedLegendRenderer,
       show: true,
       location: 'e',
-      placement: 'outside'
+      placement: 'outside',
+      // labels: labels,
+      marginTop: 0,
+      rendererOptions: {
+        numberRows: 9,
+        numberColumns: 3,
+        seriesToggle: false,
+        disableIEFading: true
+      }
     }      
-    });
+  });
   },
 
 });
