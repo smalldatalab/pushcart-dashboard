@@ -1,6 +1,6 @@
 Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
      
-  el: '#bar-charts-container',    
+   el: '#bar-charts-container', 
 
   setCollection: function(collection) {
     this.collection = collection;

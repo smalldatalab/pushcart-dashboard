@@ -13,23 +13,24 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
   },
 
   loadAdmin: function() {
-    Pushcart.users              = new Pushcart.Collections.Users;
-    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-    Pushcart.emails = new Pushcart.Collections.Emails;
-    
-    Pushcart.emails.fetch().complete(function(){
-      console.log("JSON data fetched");
-      emailTimelineView = new Pushcart.Views.EmailTimeline;
-      emailTimelineView.render();
-    })
-
     if (Pushcart.accessToken == '') {
       this.navigate("", {trigger: true});
     }
 
-    $('.login-container').fadeOut();
-    $('.wrap').detach()
+    Pushcart.users              = new Pushcart.Collections.Users;  
+    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
+    Pushcart.emails             = new Pushcart.Collections.Emails;
+    
+    Pushcart.emails.fetch().complete(function(){
+      emailTimelineView = new Pushcart.Views.EmailTimeline;
+      emailTimelineView.render();
+    })
 
+    $('.login-container').fadeOut();
+    $('.wrap').detach();
+    $('.tab_ul').append('<li><a href="#tabs-1"> Main Tab </a></li>');
+
+    
     // users list table
     Pushcart.users.fetch({
       success: function(users){                  
@@ -41,7 +42,11 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
         });
       }
     });
+
     
+    // tabs container 
+    $("#tab_wrapper").tabs();
+
     // header for users list table
     var usersTableHeader = new Pushcart.Views.UsersTableHeader();
     $('.user-table').append(usersTableHeader.render().el);
@@ -56,11 +61,11 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
 
     // header for purchases section header
     var purchasesSectionHeader = new Pushcart.Views.PurchasesSectionHeader();
-    purchasesSectionHeader.render();
+    $('#tabs-1').append(purchasesSectionHeader.render().el);
 
     // purchases overview legend
     var purchasesLegend = new Pushcart.Views.PurchasesLegend();
-    purchasesLegend.render();
+     $('#tabs-1').append(purchasesLegend.render().el);
 
     // header for purchases table 
     var purchasesTableHeader = new Pushcart.Views.PurchasesTableHeader();
