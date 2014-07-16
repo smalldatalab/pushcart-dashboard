@@ -149,3 +149,6 @@
   top: 175px;
   width: 920px;
   left: 333px; }
+
+#tab_wrapper li .ui-icon {
+  cursor: pointer; }
