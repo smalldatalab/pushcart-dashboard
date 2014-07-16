@@ -6,35 +6,39 @@ Pushcart.Views.EmailTimeline = Backbone.View.extend({
   },
 
   render: function(){
-    // var groceryData;
-    
-    Pushcart.emails.each(function(data){
-      data = data.toJSON();
-      Pushcart.groceryData = {
-        timeline: {
-          headline: "User _",
-          type: "default",
-          text: "emails",     
-          date: [{
-            startDate: data.date,
-            text: data.message,
-            headline: data.subject_line
-          }]
-        }
-      }
-    });  
+    // var dates = message.map(function(message){
+    //   return message.get('created_at').substr(0,10);
+    // });
 
-    createStoryJS({
-      type: 'timeline',
-      width: '800',
-      height: '330',
-      source: Pushcart.groceryData,
-      embed_id: 'timeline-embed',
-      debug: true,
-      css: 'css/timeline.css',    
-      js: 'js/lib/timeline-min.js' 
+    var messages = Pushcart.emails.toJSON();
+    var messagesJquery = $(messages);
+
+    var storyjs_data = { 
+      "timeline": {
+        headline: "Email History",
+        type: "default",
+        text: "",   
+        date:[]
+      }
+    };
+
+    messagesJquery.each(function(index, message){
+      var _date = {
+        startDate: message.created_at,
+        headline: message.subject,
+      };  
+      storyjs_data.timeline.date.push(_date);       
     });
 
+    createStoryJS({
+      type:     'timeline',
+      width:     '700',
+      height:    '400',
+      source:     storyjs_data,
+      embed_id:  'timeline-embed',
+      css:       'css/timeline.css',    
+      js:        'js/lib/timeline-min.js'
+    });
     return this;
   },
 
@@ -46,7 +50,7 @@ Pushcart.Views.EmailTimeline = Backbone.View.extend({
     );
     
     $("div#tab_wrapper").append(
-        "<div id='tabs-" + num_tabs + "'>" + Pushcart.groceryData.timeline.date[0].text + "</div>"
+        "<div id='tabs-" + num_tabs + "'>" + "email message details here" + "</div>"
     );
     
     $("div#tab_wrapper").tabs("refresh"); 
@@ -60,13 +64,13 @@ Pushcart.Views.EmailTimeline = Backbone.View.extend({
       tabs.tabs( "refresh" );
     });
 
-  tabs.bind( "keyup", function( event ) {
-    if ( event.altKey && event.keyCode === $.ui.keyCode.BACKSPACE ) {
+    tabs.bind( "keyup", function( event ) {
+      if ( event.altKey && event.keyCode === $.ui.keyCode.BACKSPACE ) {
       var panelId = tabs.find( ".ui-tabs-active" ).remove().attr( "aria-controls" );
       $( "#" + panelId ).remove();
       tabs.tabs( "refresh" );
-    }
-  });
+      }
+    });
   }
 
 });
