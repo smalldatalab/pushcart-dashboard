@@ -1,9 +1,9 @@
 .collapse-custom {
-  width: 85%;
+  width: 90%;
   cursor: default;
   position: absolute;
-  margin-top: 714px;
-  margin-left: 171px; }
+  margin-left: 147px;
+  margin-top: 180px; }
   .collapse-custom .navbar-tool {
     display: none; }
   .collapse-custom .navbar {
@@ -117,17 +117,38 @@
 .bar-charts p {
   border-bottom: 3px solid rgba(71, 70, 75, 0.6);
   color: #7c7c7c;
-  width: 65%;
+  width: 95%;
   float: right;
-  margin-right: 83px;
-  margin-top: 154px;
+  /* margin-right: 263px; */
+  /* margin-top: 154px; */
   font-size: 25px;
-  padding-bottom: 10px;
-  font-weight: bold; }
+  /* padding-bottom: 10px; */
+  font-weight: bold;
+  position: absolute;
+  top: 60px; }
 
 #bar-charts-container {
   width: 50%;
-  /*  margin-top: 46px;*/
-  margin-top: 116px;
-  margin-right: 225px;
+  margin-top: 98px;
+  margin-right: 343px;
   float: right; }
+
+#bar-charts-container .jqplot-point-label {
+  border: 1.5px solid #aaaaaa;
+  padding: 1px 3px;
+  background-color: #eeccdd; }
+
+/********* custom timelinejs ************/
+#timeline-embed {
+  top: 10px;
+  position: relative;
+  right: -39px; }
+
+#tab_wrapper {
+  position: relative;
+  top: 175px;
+  width: 920px;
+  left: 333px; }
+
+#tab_wrapper li .ui-icon {
+  cursor: pointer; }

@@ -1,11 +1,11 @@
 /***** user side table ******/
 /****************************/
-.user-table {
-  margin-top: 122px;
-  position: relative;
+.user-table{
+  margin-top: 175px;
   width: 260px;
   position: absolute;
-  margin-left: 9px; }
+  margin-left: 9px;
+}
 
 .user-table th {
   font-size: 22px;
@@ -13,57 +13,68 @@
   color: #808080;
   padding-bottom: 8px;
   cursor: default;
-  text-align: left; }
+  text-align: left;
+}
 
-.user-table td, .user-table tr, .user-table a {
-  color: #969696;
-  /*  width: 300px;*/
+.user-table td, .user-table tr, .user-table a{
+  color: rgb(150, 150, 150);
+/*  width: 300px;*/
   text-indent: 5px;
   font-size: 14px;
-  line-height: 35px; }
+  line-height: 35px;
+}
 
-.user-table td {
+.user-table td{
   border-bottom: 1px solid gray;
   width: 260px;
-  /*  width: 300px;*/ }
+/*  width: 300px;*/
+}
 
-.user-table #user-alias {
+.user-table #user-alias{
   font-size: 10px;
-  padding-left: 3px; }
+  padding-left: 3px;
+}
 
-.user-table tr:hover {
-  /*  background: rgba(255,255,255,0.2);*/
+.user-table tr:hover{
+/*  background: rgba(255,255,255,0.2);*/
   background: rgba(242, 217, 142, 0.2);
   width: 300px;
   cursor: pointer;
-  color: #f2d98e;
-  text-decoration: none; }
+  color: rgb(242, 217, 142);
+  text-decoration: none;
+}
 
-.user-table a:hover {
-  color: #f2d98e;
-  text-decoration: none; }
+.user-table a:hover{
+  color: rgb(242, 217, 142);
+  text-decoration: none;
+}
 
-.highlight-active {
-  background: rgba(242, 217, 142, 0.7); }
+.highlight-active{
+  background: rgba(242, 217, 142, 0.7);
+}
 
 /***** User Data ******/
 /*********************/
-.user-info-categories {
+
+.user-info-categories{
   position: absolute;
   height: 30px;
   text-align: right;
   color: #47464B;
   font-size: 15px;
   margin-left: 900px;
-  margin-top: 65px; }
+  margin-top: 65px;
+}
 
-.user-info-table {
+.user-info-table{
   margin-left: 1020px;
   color: #47464B;
   position: absolute;
   width: 240px;
   font-size: 15px;
-  margin-top: 64px; }
+  margin-top: 64px;
+}
 
-.user-info-table td {
-  margin-left: 3px; }
+.user-info-table td{
+  margin-left: 3px;
+}

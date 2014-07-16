@@ -1,6 +1,6 @@
 Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
      
-  el: '#bar-charts-container',    
+   el: '#bar-charts-container', 
 
   setCollection: function(collection) {
     this.collection = collection;
@@ -90,6 +90,7 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
    
 
   renderPlot: function(datasets, labels, categories) {
+     $.jqplot.config.catchErrors = true;
 
     var seriesLabels = _.map(categories, function(category) {
       return { label: category};
@@ -140,11 +141,19 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
     },
 
     legend: {
+      renderer: $.jqplot.EnhancedLegendRenderer,
       show: true,
       location: 'e',
-      placement: 'outside'
+      placement: 'outside',
+      marginTop: 0,
+      rendererOptions: {
+        numberRows: 9,
+        numberColumns: 3,
+        seriesToggle: false,
+        disableIEFading: true
+      }
     }      
-    });
+  });
   },
 
 });

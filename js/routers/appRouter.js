@@ -6,27 +6,27 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
   },
 
   loadHome: function() {
-    // create a users collection and a "bar chart" of the purchases breakdown
-    Pushcart.users              = new Pushcart.Collections.Users;
-    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-
-    if (Pushcart.accessToken == '') {
+    if (Pushcart.accessToken === '') {
       var login = new Pushcart.Views.Login();
       $('.main').append(login.render().el);
     }
   },
 
   loadAdmin: function() {
-    // create a users collection and a "bar chart" of the purchases breakdown
-    Pushcart.users              = new Pushcart.Collections.Users;
-    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-
     if (Pushcart.accessToken == '') {
       this.navigate("", {trigger: true});
     }
 
+    Pushcart.users              = new Pushcart.Collections.Users;  
+    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
+
     $('.login-container').fadeOut();
-    $('.wrap').detach()
+    $('.wrap').detach();
+ 
+    $('.tab_ul').append('<li><a href="#tabs-1"> Purchases Overview </a></li>');
+
+    // tabs container 
+    $("#tab_wrapper").tabs();
 
     // users list table
     Pushcart.users.fetch({
@@ -39,30 +39,30 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
         });
       }
     });
-    
+
+    // render sample email message history on timeline
+    Pushcart.emails             = new Pushcart.Collections.Emails;
+
     // header for users list table
     var usersTableHeader = new Pushcart.Views.UsersTableHeader();
-    $('body').append(usersTableHeader.render().el);
+    $('.user-table').append(usersTableHeader.render().el);
 
-    // user info table categories
+   // user info table categories
     var userInfoCategories = new Pushcart.Views.UsersInfoHeader();
-    $('.user-info-categories').append(userInfoCategories.render().el);
-    
+    userInfoCategories.render();
+
     // header for dashboard header
     var dashboardHeader = new Pushcart.Views.DashboardHeader();
-    $('.content-header').append(dashboardHeader.render().el);
-
-    // header for purchases section header
-    var purchasesSectionHeader = new Pushcart.Views.PurchasesSectionHeader();
-    $('.bar-charts').append(purchasesSectionHeader.render().el);
+    dashboardHeader.render(); 
 
     // purchases overview legend
     var purchasesLegend = new Pushcart.Views.PurchasesLegend();
-    $('.purchases-legend').append(purchasesLegend.render().el);
+     $('#tabs-1').append(purchasesLegend.render().el);
 
     // header for purchases table 
     var purchasesTableHeader = new Pushcart.Views.PurchasesTableHeader();
-    $('.collapse-custom').append(purchasesTableHeader.render().el);
+    purchasesTableHeader.render();
+
   }
 
 });

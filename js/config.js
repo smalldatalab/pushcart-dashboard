@@ -2,7 +2,8 @@ window.Pushcart = {
       Models:      {},
       Collections: {},
       Views:       {},
-      Routers:     {}
+      Routers:     {},
+      groceryData: {}
 };
 
 // create a namespaced global variable to hold our OAuth access token
