@@ -40,9 +40,6 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
       }
     });
 
-    // render sample email message history on timeline
-    Pushcart.emails             = new Pushcart.Collections.Emails;
-
     // header for users list table
     var usersTableHeader = new Pushcart.Views.UsersTableHeader();
     $('.user-table').append(usersTableHeader.render().el);
