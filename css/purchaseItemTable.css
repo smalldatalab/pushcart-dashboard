@@ -1,5 +1,5 @@
 .collapse-custom {
-  width: 90%;
+  width: 85%;
   cursor: default;
   position: absolute;
   margin-top: 974px;
@@ -117,20 +117,18 @@
 .bar-charts p {
   border-bottom: 3px solid rgba(71, 70, 75, 0.6);
   color: #7c7c7c;
-  width: 95%;
+  width: 65%;
   float: right;
-  /* margin-right: 263px; */
-  /* margin-top: 154px; */
+  margin-right: 83px;
+  margin-top: 154px;
   font-size: 25px;
-  /* padding-bottom: 10px; */
-  font-weight: bold;
-  position: absolute;
-  top: 60px; }
+  padding-bottom: 10px;
+  font-weight: bold; }
 
 #bar-charts-container {
   width: 50%;
-  margin-top: 98px;
-  margin-right: 343px;
+  margin-top: 55px;
+  margin-right: 282px;
   float: right; }
 
 #bar-charts-container .jqplot-point-label {
@@ -140,15 +138,6 @@
 
 /********* custom timelinejs ************/
 #timeline-embed {
-  top: 10px;
-  position: relative;
-  right: -39px; }
-
-#tab_wrapper {
-  position: relative;
-  top: 175px;
-  width: 920px;
-  left: 333px; }
-
-#tab_wrapper li .ui-icon {
-  cursor: pointer; }
+  position: absolute;
+  top: 600px;
+  left: 378px; }
