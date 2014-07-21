@@ -17,8 +17,6 @@ Pushcart.Views.User = Backbone.View.extend({
   },
   
   reRenderPurchases: function(e){
-    console.log("re-render purchases clicked!");
-
     var self = this;
     var userId = $(e.currentTarget).data('userid');
     var purchasesCollection = new Pushcart.Collections.Purchases({ userId: userId });
@@ -28,7 +26,7 @@ Pushcart.Views.User = Backbone.View.extend({
     this.model = new Pushcart.Models.User({ id: userId });
     this.model.fetch().done(function(response) {
       var userInfoView = new Pushcart.Views.UserInfo({ model: self.model });
-      $('.user-info').html(userInfoView.render().el);
+      $('.user-info').html(userInfoView.render().el);  ;
     });
     // render purchases for selected user
     $collapser.find('.purchase-view').remove();
@@ -44,6 +42,17 @@ Pushcart.Views.User = Backbone.View.extend({
       // render bar chart of purchases overview
       self.reRenderPurchaseBreakdown(purchasesCollection);
     });
+
+    // render timeline chart 
+    var $timeline = $('#timeline-embed');
+    $timeline.find('#storyjs').remove();
+
+    Pushcart.emails = new Pushcart.Collections.Emails({ userId: userId });
+    console.log("emails userId >" + userId);
+    Pushcart.emails.fetch().complete(function(){
+      emailTimelineView = new Pushcart.Views.EmailTimeline;
+      emailTimelineView.render();
+    });
   },
   
   reRenderPurchaseBreakdown: function(purchasesCollection) {
@@ -57,7 +66,7 @@ Pushcart.Views.User = Backbone.View.extend({
     $user.find('.user-info-table').remove();
   },
 
-  highlightSelectedUser: function(event){
+  highlightSelectedUser: function(e){
     $('.userIdClickable').removeClass('highlight-active');
       $(this.$('.userIdClickable')).addClass('highlight-active');
   },

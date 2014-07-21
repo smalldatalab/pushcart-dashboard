@@ -13,20 +13,15 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
   },
 
   loadAdmin: function() {
+    Pushcart.users              = new Pushcart.Collections.Users;
+    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
+   
     if (Pushcart.accessToken == '') {
       this.navigate("", {trigger: true});
     }
 
-    Pushcart.users              = new Pushcart.Collections.Users;  
-    Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-
     $('.login-container').fadeOut();
-    $('.wrap').detach();
- 
-    $('.tab_ul').append('<li><a href="#tabs-1"> Purchases Overview </a></li>');
-
-    // tabs container 
-    $("#tab_wrapper").tabs();
+    $('.wrap').detach()
 
     // users list table
     Pushcart.users.fetch({
@@ -39,10 +34,7 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
         });
       }
     });
-
-    // render sample email message history on timeline
-    Pushcart.emails             = new Pushcart.Collections.Emails;
-
+    
     // header for users list table
     var usersTableHeader = new Pushcart.Views.UsersTableHeader();
     $('.user-table').append(usersTableHeader.render().el);
@@ -55,9 +47,13 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
     var dashboardHeader = new Pushcart.Views.DashboardHeader();
     dashboardHeader.render(); 
 
+    // header for purchases section header
+    var purchasesSectionHeader = new Pushcart.Views.PurchasesSectionHeader();
+    purchasesSectionHeader.render();
+
     // purchases overview legend
     var purchasesLegend = new Pushcart.Views.PurchasesLegend();
-     $('#tabs-1').append(purchasesLegend.render().el);
+    purchasesLegend.render();
 
     // header for purchases table 
     var purchasesTableHeader = new Pushcart.Views.PurchasesTableHeader();

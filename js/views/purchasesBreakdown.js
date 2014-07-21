@@ -92,6 +92,8 @@ Pushcart.Views.PurchasesBreakdown = Backbone.View.extend({
   renderPlot: function(datasets, labels, categories) {
      $.jqplot.config.catchErrors = true;
 
+    $.jqplot.config.catchErrors = true;
+
     var seriesLabels = _.map(categories, function(category) {
       return { label: category};
     });
