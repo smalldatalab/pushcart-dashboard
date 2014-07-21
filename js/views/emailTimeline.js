@@ -1,37 +1,36 @@
 Pushcart.Views.EmailTimeline = Backbone.View.extend({
   
-  el: '#timeline-embed',
-
   render: function(){
-    var groceryData;
-    
-    Pushcart.emails.each(function(data){
-      data = data.toJSON();
-      groceryData = {
-        timeline: {
-          headline: "User " + data.id,
-          type: "default",
-          text: "emails",     
-          date: [{
-            startDate: data.date,
-            text: data.message,
-            headline: data.subject_line
-          }]
-        }
+    var messages = Pushcart.emails.toJSON();
+    var messagesJquery = $(messages);
+
+    var storyjs_data = { 
+      "timeline": {
+        headline: "Email History",
+        type: "default",
+        text: "",   
+        date:[]
       }
-    });  
+    };
+
+    messagesJquery.each(function(index, message){
+      var _date = {
+        startDate: message.created_at,
+        headline: message.subject,
+      };  
+      storyjs_data.timeline.date.push(_date);       
+    });
 
     createStoryJS({
-      type: 'timeline',
-      width: '800',
-      height: '330',
-      source: groceryData,
-      embed_id: 'timeline-embed',
-      debug: true,
-      css: 'css/timeline.css',    
-      js: 'js/lib/timeline-min.js' 
+      type:     'timeline',
+      width:     '700',
+      height:    '400',
+      source:     storyjs_data,
+      embed_id:  'timeline-embed',
+      css:       'css/timeline.css',    
+      js:        'js/lib/timeline-min.js'
     });
     return this;
   }
-});
 
+});

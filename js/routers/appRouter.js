@@ -15,14 +15,7 @@ window.Pushcart.Routers.AppRouter = Backbone.Router.extend({
   loadAdmin: function() {
     Pushcart.users              = new Pushcart.Collections.Users;
     Pushcart.purchasesBreakdown = new Pushcart.Views.PurchasesBreakdown();
-    Pushcart.emails = new Pushcart.Collections.Emails;
-    
-    Pushcart.emails.fetch().complete(function(){
-      console.log("JSON data fetched");
-      emailTimelineView = new Pushcart.Views.EmailTimeline;
-      emailTimelineView.render();
-    })
-
+   
     if (Pushcart.accessToken == '') {
       this.navigate("", {trigger: true});
     }
