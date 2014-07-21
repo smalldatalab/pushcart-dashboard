@@ -5,8 +5,7 @@ Pushcart.Views.User = Backbone.View.extend({
   events: {
    'click .userIdClickable': function(e) {
       this.reRenderPurchases(e);
-      this.highlightSelectedUser(e);
-      this.renderEmailTimeline(e);
+      this.highlightSelectedUser(e)
     }
   },
 
@@ -69,16 +68,5 @@ Pushcart.Views.User = Backbone.View.extend({
   highlightSelectedUser: function(e){
     $('.userIdClickable').removeClass('highlight-active');
       $(this.$('.userIdClickable')).addClass('highlight-active');
-  },
-
-  renderEmailTimeline: function(event){
-    // re-render sample hard-coded email timeline
-    var $timeline = $('#timeline-embed');
-    $timeline.find('#storyjs').remove();
-    Pushcart.emails.fetch().complete(function(){
-      emailTimelineView = new Pushcart.Views.EmailTimeline;
-      emailTimelineView.render();
-    });
   }
-
 });
